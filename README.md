@@ -4,4 +4,4 @@
 ![intro](https://capsule-render.vercel.app/api?type=transparent&text=이재연,최윤서&fontAlign=50&animation=blink&fontSize=20&section=intro&height=50)
 
 # Process(진행과정)
-- 깃허브&이클립스 연동 성공 -이재연
+- 깃허브&이클립스 연동 성공 -이재연<2022.11.23>
