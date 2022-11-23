@@ -2,7 +2,7 @@ package fbwg_1;
 
 import java.awt.Graphics;
 import java.awt.Image;
-
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class Fbwg  extends JFrame{
