@@ -1,10 +1,10 @@
 package fbwg_2;
 
 import java.awt.Graphics;
+
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -22,7 +22,6 @@ public class Fbwg  extends JFrame{
 	private ImageIcon play2 = new ImageIcon(Main.class.getResource("../images/play2.png"));
 	private JButton playBt = new JButton(play);
 	
-	private int mouseX, mouseY;
 	
 	
 	public Fbwg() {
@@ -57,21 +56,6 @@ public class Fbwg  extends JFrame{
 				//클릭 시 이벤트 처리
 			}
 		});
-//		playBt.addMouseListener(new MouseAdapter() {
-//			@Override
-//			public void mousePressed(MouseEvent e) {
-//				mouseX = e.getX();
-//				mouseX = e.getY();
-//			}
-//		});
-//		addMouseMotionListener(new MouseMotionAdapter() {
-//			@Override
-//			public void mouseDragged(MouseEvent e) {
-//				int x=e.getXOnScreen();
-//				int y=e.getYOnScreen();
-//				setLocation(x-mouseX, y-mouseY);
-//			}
-//		});
 		
 		
 		
