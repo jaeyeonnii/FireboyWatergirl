@@ -2,8 +2,11 @@ package fbwg_1;
 
 import java.awt.Graphics;
 import java.awt.Image;
+
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class Fbwg  extends JFrame{
 	
@@ -12,6 +15,7 @@ public class Fbwg  extends JFrame{
 	
 	private Image startback;
 	private Image title;
+	
 	
 	public Fbwg() {
 		setTitle("Fireboy and Watergirl");
@@ -24,6 +28,8 @@ public class Fbwg  extends JFrame{
 		
 		startback = new ImageIcon(Main.class.getResource("../images/startback.png")).getImage();
 		title = new ImageIcon(Main.class.getResource("../images/title.png")).getImage();
+
+		
 	} 
 	public void paint(Graphics g) {
 		screenImage = createImage(Main.SCREEN_WIDTH,Main.SCREEN_HEIGHT);
@@ -35,6 +41,9 @@ public class Fbwg  extends JFrame{
 	public void screenDraw(Graphics g) {
 		g.drawImage(startback, 0, 0, null);
 		g.drawImage(title, 70, 70, null);
+		//g.drawImage(play, 360, 400, null);
+		
+		
 		this.repaint();
 	}
 }
