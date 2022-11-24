@@ -2,11 +2,13 @@ package fbwg_1;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 public class Fbwg  extends JFrame{
 	
@@ -15,6 +17,11 @@ public class Fbwg  extends JFrame{
 	
 	private Image startback;
 	private Image title;
+	private Image beam;
+	private ImageIcon play =new ImageIcon(Main.class.getResource("../images/play.png"));
+	private ImageIcon play2 = new ImageIcon(Main.class.getResource("../images/play2.png"));
+	private JButton playBt = new JButton(play);
+	
 	
 	
 	public Fbwg() {
@@ -28,9 +35,30 @@ public class Fbwg  extends JFrame{
 		
 		startback = new ImageIcon(Main.class.getResource("../images/startback.png")).getImage();
 		title = new ImageIcon(Main.class.getResource("../images/title.png")).getImage();
-
+		beam = new ImageIcon(Main.class.getResource("../images/Beam.png")).getImage();
+		add(playBt);
+		
+		playBt.setBounds(360,400,264,131);
+		playBt.setBorderPainted(false); //테두리
+		playBt.setContentAreaFilled(false); //배경
+		playBt.setFocusPainted(false); //포커스 표시
+		playBt.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				playBt.setIcon(play2);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				playBt.setIcon(play);
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+				//클릭 시 이벤트 처리
+			}
+		});
 		
 	} 
+	 
 	public void paint(Graphics g) {
 		screenImage = createImage(Main.SCREEN_WIDTH,Main.SCREEN_HEIGHT);
 		screenGraphic = screenImage.getGraphics();
@@ -40,9 +68,9 @@ public class Fbwg  extends JFrame{
 	
 	public void screenDraw(Graphics g) {
 		g.drawImage(startback, 0, 0, null);
+		g.drawImage(beam,420,-100,null);
 		g.drawImage(title, 70, 70, null);
-		//g.drawImage(play, 360, 400, null);
-		
+		paintComponents(g); //JLabel 그려줌
 		
 		this.repaint();
 	}
