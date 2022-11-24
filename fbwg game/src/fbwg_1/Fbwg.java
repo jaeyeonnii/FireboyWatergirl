@@ -11,6 +11,7 @@ public class Fbwg  extends JFrame{
 	private Graphics screenGraphic;
 	
 	private Image startback;
+	private Image title;
 	
 	public Fbwg() {
 		setTitle("Fireboy and Watergirl");
@@ -22,7 +23,7 @@ public class Fbwg  extends JFrame{
 		setLayout(null);
 		
 		startback = new ImageIcon(Main.class.getResource("../images/startback.png")).getImage();
-		
+		title = new ImageIcon(Main.class.getResource("../images/title.png")).getImage();
 	} 
 	public void paint(Graphics g) {
 		screenImage = createImage(Main.SCREEN_WIDTH,Main.SCREEN_HEIGHT);
@@ -33,6 +34,7 @@ public class Fbwg  extends JFrame{
 	
 	public void screenDraw(Graphics g) {
 		g.drawImage(startback, 0, 0, null);
+		g.drawImage(title, 70, 70, null);
 		this.repaint();
 	}
 }
