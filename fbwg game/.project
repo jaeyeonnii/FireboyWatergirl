@@ -16,6 +16,11 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>src/images/Beam.png</name>
+			<type>1</type>
+			<locationURI>PARENT-5-PROJECT_LOC/%EC%9C%A4%EC%84%9C/JBNU/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0/%EA%B0%9D%EC%A7%80%ED%94%84/%EC%9E%A1%EC%95%84%EC%9E%90%EB%B0%94/Beam.png</locationURI>
+		</link>
+		<link>
 			<name>src/music/Menu Music.mp3</name>
 			<type>1</type>
 			<locationURI>PARENT-5-PROJECT_LOC/%EC%9C%A4%EC%84%9C/JBNU/2%ED%95%99%EB%85%84%202%ED%95%99%EA%B8%B0/%EA%B0%9D%EC%A7%80%ED%94%84/%EC%9E%A1%EC%95%84%EC%9E%90%EB%B0%94/%EC%82%AC%EC%9A%B4%EB%93%9C/Menu%20Music.mp3</locationURI>
