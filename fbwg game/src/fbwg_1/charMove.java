@@ -1,6 +1,7 @@
 package fbwg_1;
 //캐릭터 이동
-
+//Fbwg 파일에 private charMove play1; , 
+//setpanel에 play1 = new charMove();, add(play1);
 import java.awt.*; 
 import java.awt.event.*;
 import javax.swing.*;
