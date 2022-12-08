@@ -20,6 +20,7 @@ public class Fbwg  extends JFrame{
 	   Image startback= new ImageIcon(Main.class.getResource("../images/startback.png")).getImage();
 	   Image title = new ImageIcon(Main.class.getResource("../images/title.png")).getImage();
 	   Image beam = new ImageIcon(Main.class.getResource("../images/Beam.png")).getImage();
+	   Image play = new ImageIcon(Main.class.getResource("../images/play.png")).getImage();
 	   public void paint(Graphics g) {
 
 			  g.drawImage(startback, 0, 0, null);
@@ -27,6 +28,7 @@ public class Fbwg  extends JFrame{
 			  g.drawImage(beam,300,-200,null);
 			  g.drawImage(beam,540,-200,null);
 			  g.drawImage(title, 70, 70, null);
+			  g.drawImage(play, 360, 400, null);
 		   }
    };
    static JPanel page2=new JPanel() {
@@ -65,7 +67,7 @@ public class Fbwg  extends JFrame{
 //		playBt.setContentAreaFilled(false); // 배경
 //		playBt.setFocusPainted(false); // 포커스 표시
 		playBt.setIcon(play);
-		//playBt.setOpaque(false);
+		playBt.setOpaque(false);
 		playBt.setLayout(null);
 		page1.setBounds(0, 0, Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);//패널1의 위치 설정
 	   page2.setBounds(0, 0, Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);//패널2의 위치 설정

@@ -6,8 +6,8 @@ public class Main {
    public static final int SCREEN_HEIGHT = 750;
    public static void main(String[] args) {
 
-      new Fbwg();
-	   //new level1();
+      //new Fbwg();
+	   new Level1();
    }
 
 }
