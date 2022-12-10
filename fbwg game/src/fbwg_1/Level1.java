@@ -1,9 +1,9 @@
 package fbwg_1;
 
+import javafx.stage.*;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.util.ArrayList;
-import javafx.stage.*;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
