@@ -148,6 +148,7 @@ public class Stage extends Thread{
 	}
 	//워터걸 용암 빠질 때 //좌표 수정해야함
 	public void touchFire() { 
+		
 		for (int i=fireList.size()-1; i >= 0; i--) {
 			if ( // 몬스터의 왼쪽에서 접근할 때
 				fireList.get(i).getX() <= Level1.watergirl.getPos_X()+50 
@@ -168,6 +169,8 @@ public class Stage extends Thread{
 					
 					try {
 						Thread.sleep(2000);
+						
+						
 					} catch (Exception e) {}
 					
 //					close();
