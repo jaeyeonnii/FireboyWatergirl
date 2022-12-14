@@ -19,8 +19,8 @@ public class Stage extends Thread{
 	//블록
 	private Image bt1 = new ImageIcon(Main.class.getResource("../images/buttonP.png")).getImage();
 	private Image bt2 = new ImageIcon(Main.class.getResource("../images/buttonP.png")).getImage();
-//	private ArrayList<Block> blockList = new ArrayList<>();
-	private Block block = new Block();
+	private ArrayList<Block> blockList = new ArrayList<>();
+//	private Block block = new Block();
 	
 	public ArrayList<Water> getWaterList(){
 		return waterList;
@@ -31,9 +31,9 @@ public class Stage extends Thread{
 	public ArrayList<Bog> getBogList(){
 		return bogList;
 	}
-//	public ArrayList<Block> getBlockList(){
-//		return blockList;
-//	}
+	public ArrayList<Block> getBlockList(){
+		return blockList;
+	}
 	
 	public ArrayList<FWItem> getItemList(){
 		return itemList;
@@ -52,10 +52,10 @@ public class Stage extends Thread{
 		bogList.add(bog);
 	}
 	
-//	public void makeBlock(Block block) {
-//		blockList.add(block);
-//	}
-//	
+	public void makeBlock(Block block) {
+		blockList.add(block);
+	}
+	
 	public void drawItems(Graphics g) {
 		for (int i=0; i< itemList.size(); i++) {
 			if(itemList.get(i) instanceof Firetem) {
@@ -105,35 +105,40 @@ public class Stage extends Thread{
 		}
 	}
 	public void drawBog(Graphics g) {
+		g.drawImage(bt1,200,500,null);
+		g.drawImage(bt2,300,370,null);
 		for(int i= 0; i< bogList.size();i++) {
 			g.drawImage(bogList.get(i).getNowState(),bogList.get(i).getX(),bogList.get(i).getY(),null);
 		}
 	}
 	
 	public void drawblock(Graphics g) {
-		g.drawImage(bt1,200,500,null);
-		g.drawImage(bt2,300,370,null);
-//		for(int i= 0; i< blockList.size();i++)
-//		{
-//			g.drawImage(blockList.get(i).getimage(),blockList.get(i).getX(),blockList.get(i).getY(),null);
-//		}
-		g.drawImage(block.getimage(), block.getX(), block.getY(), null);
+////		g.drawImage(bt1,200,500,null);
+////		g.drawImage(bt2,300,370,null);
+////		for(int i= 0; i< blockList.size();i++)
+////		{
+////			g.drawImage(blockList.get(i).getimage(),blockList.get(i).getX(),blockList.get(i).getY(),null);
+////		}
+//		g.drawImage(block.getimage(), block.getX(), block.getY(), null);
+		for(int i= 0; i< blockList.size();i++) {
+			g.drawImage(blockList.get(i).getimage(),blockList.get(i).getX(),blockList.get(i).getY(),null);
+		}
 	}
-//	public void touchBt() {
-//		for(int i= 0; i< bogList.size();i++)
-//		{
-//			if(
-//		
-//				Level1.watergirl.getPos_X()+30>200&&Level1.watergirl.getPos_X()+30<220
-//				&&Level1.watergirl.getPos_Y()>400&&Level1.watergirl.getPos_Y()<430) 
-//			{
-//			blockList.get(i).pushing();
-//			}
-//			else
-//				blockList.get(i).pushing();
-//		}
-//		
-//	}
+	public void touchBt() {
+		for(int i=blockList.size()-1; i >= 0; i--)
+		{
+			if(
+				Level1.watergirl.getPos_X()+60>200&&Level1.watergirl.getPos_X()+30<220
+				&&Level1.watergirl.getPos_Y()>400&&Level1.watergirl.getPos_Y()<430
+				) 
+			{
+			blockList.get(i).pushing();
+			}
+			else
+				blockList.get(i).out();
+		}
+		
+	}
 	public void touchFire() {
 		for (int i=fireList.size()-1; i >= 0; i--) {
 			if ( // 몬스터의 왼쪽에서 접근할 때
@@ -171,10 +176,12 @@ public class Stage extends Thread{
 			fireList.add(Level1.f1);
 			waterList.add(Level1.w1);
 			bogList.add(Level1.b1);
+			blockList.add(Level1.bl);
 			
 			while (itemList.size()>0) { //아이템 먹기
 				eatItems();
 				touchFire();
+				touchBt();
 //				Level1.watergirl.checkLaddering();
 			}
 		}

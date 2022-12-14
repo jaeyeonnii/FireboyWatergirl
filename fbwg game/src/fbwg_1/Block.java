@@ -28,64 +28,63 @@ public class Block extends Thread{
 	}
 	
 	
-	private boolean push =true; //버튼 눌림 감지
+	private boolean push =false; //버튼 눌림 감지
 	
-	@Override
-	public void run() {
-		while(true) {
-			if(push == false) {
-				x+=20;
-				push = true;
-			}
-			else {
-				x-=20;
-				push = false;
-			}
-			try {
-				Thread.sleep(100);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-//	
-//	public void pushing() {
-//		if(push==true)
-//			push=false;
-//		else
-//			push=true;
-//		
-//	}
-//		public Block() {
-//			
-//		}
-//		@Override
-//		public void run() {
-//			while(true) {
-//				if(push) {
-//					if(y<max)
-//						y+=10;
-//					
-//					try {
-//						Thread.sleep(20);
-//					} catch (Exception e) {
-//					
-//					}
-//				}
-//				
-//				else{
-//					if(y>=min)
-//						y-=10;
-//				
-//					try {
-//						Thread.sleep(20);
-//					} catch(Exception e) {
-//					
-//					}
-//				}
+//	@Override
+//	public void run() {
+//		while(true) {
+//			if(push == false) {
+//				x+=20;
+//				push = true;
+//			}
+//			else {
+//				x-=20;
+//				push = false;
+//			}
+//			try {
+//				Thread.sleep(100);
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
 //			}
 //		}
-//}
+//	}
+//	
+	public void pushing() {
+		push=true;
+	}
+	public void out() {
+		push=false;
+	}
+		public Block() {
+			
+		}
+		@Override
+		public void run() {
+			while(true) {
+				if(push) {
+					if(y<max)
+						y+=2;
+					
+					try {
+						Thread.sleep(20);
+					} catch (Exception e) {
+					
+					}
+				}
+				
+				else{
+					if(y>=min)
+						y-=2;
+				
+					try {
+						Thread.sleep(20);
+					} catch(Exception e) {
+					
+					}
+				}
+			}
+		}
+
 
 //private String direction = "right";
 //		@Override
