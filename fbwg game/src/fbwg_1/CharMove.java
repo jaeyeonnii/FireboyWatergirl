@@ -106,7 +106,7 @@ public class CharMove {
 					direction = "Fright";
 				}
 				
-				if (pos_X <= 750)
+				if (pos_X <= 1000)
 					pos_X += SPEED;
 				if(i==0) {
 					state = fireRightMove1; 
@@ -163,7 +163,7 @@ public class CharMove {
 					direction = "Wright";
 				}
 				
-				if (pos_X <= 750)
+				if (pos_X <= 1000)
 					pos_X += SPEED;
 				if(i==0) {
 					state = waterRightMove1; 
