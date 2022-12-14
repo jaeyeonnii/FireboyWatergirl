@@ -8,6 +8,5 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JLayer"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="lib/lombok.jar"/>
-	<classpathentry kind="lib" path="C:/Users/82103/Downloads/jlayer-1.0.1.jar (1)/jlayer-1.0.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
