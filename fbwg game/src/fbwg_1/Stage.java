@@ -146,20 +146,20 @@ public class Stage extends Thread{
 		}
 		
 	}
-	//워터걸 용암 빠질 때 //좌표 수정해야함
+	//워터걸 용암 빠질 때 또는 늪 //좌표 수정해야함!
 	public void touchFire() { 
 		
 		for (int i=fireList.size()-1; i >= 0; i--) {
-			if ( // 몬스터의 왼쪽에서 접근할 때
-				fireList.get(i).getX() <= Level1.watergirl.getPos_X()+50 
-					&& Level1.watergirl.getPos_X()+64 <= fireList.get(i).getX()+45
-					&& Level1.watergirl.getPos_Y()+128 >= fireList.get(i).getY() 
-					&& Level1.watergirl.getPos_Y() <= fireList.get(i).getY()
-				// 몬스터의 오른쪽에서 접근할 때
-				|| Level1.watergirl.getPos_X() <= fireList.get(i).getX() + 45 
-					&& Level1.watergirl.getPos_X() >= fireList.get(i).getX()
-					&& Level1.watergirl.getPos_Y()+128 >= fireList.get(i).getY() 
-					&& Level1.watergirl.getPos_Y() <= fireList.get(i).getY()) 
+			if ( (
+				fireList.get(i).getX()-20 <= Level1.watergirl.getPos_X()
+					&& Level1.watergirl.getPos_X() <= fireList.get(i).getX()+130
+					&& Level1.watergirl.getPos_Y() >= fireList.get(i).getY() -110
+					)
+				// 늪
+				|| (bogList.get(i).getX()-20 <= Level1.watergirl.getPos_X()
+					&& Level1.watergirl.getPos_X() <= bogList.get(i).getX()+130
+					&& Level1.watergirl.getPos_Y() >= bogList.get(i).getY() -110
+					&& Level1.watergirl.getPos_Y() <= bogList.get(i).getY() -90))
 			{
 					new Music("Death.mp3", false).start(); //죽을때 소리
 					
@@ -182,16 +182,16 @@ public class Stage extends Thread{
 	//파이어보이 물 빠질 때 //좌표수정해야함
 		public void touchWater() { 
 			for (int i=waterList.size()-1; i >= 0; i--) {
-				if ( // 몬스터의 왼쪽에서 접근할 때
+				if ( //물
 					waterList.get(i).getX() <= Level1.fireboy.getPos_X()+50 
 						&& Level1.fireboy.getPos_X()+64 <= waterList.get(i).getX()+45
 						&& Level1.fireboy.getPos_Y()+128 >= waterList.get(i).getY() 
 						&& Level1.fireboy.getPos_Y() <= waterList.get(i).getY()
-					// 몬스터의 오른쪽에서 접근할 때
-					|| Level1.fireboy.getPos_X() <= waterList.get(i).getX() + 45 
-						&& Level1.fireboy.getPos_X() >= waterList.get(i).getX()
-						&& Level1.fireboy.getPos_Y()+128 >= waterList.get(i).getY() 
-						&& Level1.fireboy.getPos_Y() <= waterList.get(i).getY()) 
+					// 늪
+					|| (bogList.get(i).getX()-20 <= Level1.fireboy.getPos_X()
+							&& Level1.fireboy.getPos_X() <= bogList.get(i).getX()+130
+							&& Level1.fireboy.getPos_Y() >= bogList.get(i).getY() -110
+							&& Level1.fireboy.getPos_Y() <= bogList.get(i).getY() -90)) 
 				{
 						new Music("Death.mp3", false).start(); //죽을때 소리
 						
