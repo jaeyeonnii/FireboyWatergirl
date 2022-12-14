@@ -160,7 +160,7 @@ public class Stage extends Thread{
 					&& Level1.watergirl.getPos_Y()+128 >= fireList.get(i).getY() 
 					&& Level1.watergirl.getPos_Y() <= fireList.get(i).getY()) 
 			{
-					//new Music("died.mp3", false).start(); //磷阑锭 家府
+					new Music("Death.mp3", false).start(); //磷阑锭 家府
 					
 //					for (int j=0; j < fireList.size(); j++) {
 //						fireList.get(j).close();
@@ -190,7 +190,7 @@ public class Stage extends Thread{
 						&& Level1.fireboy.getPos_Y()+128 >= waterList.get(i).getY() 
 						&& Level1.fireboy.getPos_Y() <= waterList.get(i).getY()) 
 				{
-						//new Music("died.mp3", false).start(); //磷阑锭 家府
+						new Music("Death.mp3", false).start(); //磷阑锭 家府
 						
 //						for (int j=0; j < fireList.size(); j++) {
 //							fireList.get(j).close();
@@ -201,7 +201,7 @@ public class Stage extends Thread{
 						} catch (Exception e) {}
 						
 //						close();
-						Main.bal.restartStage();
+						Fbwg.bal.restartStage();
 						
 					}
 				}
