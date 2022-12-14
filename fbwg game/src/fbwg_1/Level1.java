@@ -69,16 +69,17 @@ public class Level1 extends JFrame {
 		//맵을 오프스크린에 그림
 		g.drawImage(background, 0, 0, null);
 		
-		//템, 장애물 오프스크린에 그림
+		//템 오프스크린에 그림
 		stage.drawItems(g);
-		stage.drawFire(g);
-		stage.drawWater(g);
-		stage.drawBog(g);
+		
 		stage.drawblock(g);
 		//캐릭터 그리기
 		g.drawImage(watergirl.getState(), watergirl.getPos_X(), watergirl.getPos_Y(), null);
 		g.drawImage(fireboy.getState(), fireboy.getPos_X(), fireboy.getPos_Y(), null);
-		
+		//장애물 그리기
+		stage.drawFire(g);
+		stage.drawWater(g);
+		stage.drawBog(g);
 		//페인트 함수로 돌아감
 		this.repaint();
 	}

@@ -105,16 +105,17 @@ public class Stage extends Thread{
 		}
 	}
 	public void drawBog(Graphics g) {
-		g.drawImage(bt1,200,500,null);
-		g.drawImage(bt2,300,370,null);
+		
 		for(int i= 0; i< bogList.size();i++) {
 			g.drawImage(bogList.get(i).getNowState(),bogList.get(i).getX(),bogList.get(i).getY(),null);
 		}
 	}
-	
+	public void drawAgain(Graphics g) {
+		g.drawImage(gameover, 50, 150, null);
+	}
 	public void drawblock(Graphics g) {
-////		g.drawImage(bt1,200,500,null);
-////		g.drawImage(bt2,300,370,null);
+		g.drawImage(bt1,200,500,null);
+		g.drawImage(bt2,300,370,null);
 ////		for(int i= 0; i< blockList.size();i++)
 ////		{
 ////			g.drawImage(blockList.get(i).getimage(),blockList.get(i).getX(),blockList.get(i).getY(),null);
@@ -124,15 +125,18 @@ public class Stage extends Thread{
 			g.drawImage(blockList.get(i).getimage(),blockList.get(i).getX(),blockList.get(i).getY(),null);
 		}
 	}
-	public void touchBt() { //파이어 보이 구현해야함
+	public void touchBt() { //좌표 손봐야함
 		for(int i=blockList.size()-1; i >= 0; i--)
 		{
-			if(
+			if((
 				Level1.watergirl.getPos_X()+60>200&&Level1.watergirl.getPos_X()+30<220
 				&&Level1.watergirl.getPos_Y()>400&&Level1.watergirl.getPos_Y()<430
 				||Level1.watergirl.getPos_X()+60>300&&Level1.watergirl.getPos_X()+30<320
 				&&Level1.watergirl.getPos_Y()>270&&Level1.watergirl.getPos_Y()<300
-				) 
+				) ||(Level1.fireboy.getPos_X()+40>200&&Level1.fireboy.getPos_X()+30<240
+				&&Level1.fireboy.getPos_Y()>420&&Level1.fireboy.getPos_Y()<430
+				||Level1.fireboy.getPos_X()+40>300&&Level1.fireboy.getPos_X()+30<340
+				&&Level1.fireboy.getPos_Y()>270&&Level1.fireboy.getPos_Y()<300))
 			{
 			blockList.get(i).pushing();
 			}
@@ -141,7 +145,8 @@ public class Stage extends Thread{
 		}
 		
 	}
-	public void touchFire() {
+	//워터걸 용암 빠질 때
+	public void touchFire() { 
 		for (int i=fireList.size()-1; i >= 0; i--) {
 			if ( // 몬스터의 왼쪽에서 접근할 때
 				fireList.get(i).getX() <= Level1.watergirl.getPos_X()+50 
