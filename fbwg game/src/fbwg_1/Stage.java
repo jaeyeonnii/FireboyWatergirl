@@ -6,10 +6,6 @@ import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 
-import bricks_and_ladders.BricksAndLadders;
-import bricks_and_ladders.Main;
-import bricks_and_ladders.Music;
-
 
 public class Stage extends Thread{
 	
@@ -19,6 +15,10 @@ public class Stage extends Thread{
 	private ArrayList<Fire> fireList = new ArrayList<>();
 	private ArrayList<Water> waterList = new ArrayList<>();
 	private ArrayList<Bog> bogList = new ArrayList<>();
+	
+	private Image bt1 = new ImageIcon(Main.class.getResource("../images/buttonP.png")).getImage();
+	private Image bt2 = new ImageIcon(Main.class.getResource("../images/buttonP.png")).getImage();
+	private Block block = new Block();
 	
 	public ArrayList<Water> getWaterList(){
 		return waterList;
@@ -100,6 +100,12 @@ public class Stage extends Thread{
 			g.drawImage(bogList.get(i).getNowState(),bogList.get(i).getX(),bogList.get(i).getY(),null);
 		}
 	}
+	
+	public void drawblock(Graphics g) {
+		g.drawImage(bt1,200,500,null);
+		g.drawImage(bt2,300,370,null);
+		g.drawImage(block.getblock(),block.getX(),block.getY(),null);
+	}
 	public void touchFire() {
 		for (int i=fireList.size()-1; i >= 0; i--) {
 			if ( // 몬스터의 왼쪽에서 접근할 때
@@ -115,20 +121,23 @@ public class Stage extends Thread{
 			{
 					//new Music("died.mp3", false).start(); //죽을때 소리
 					
-					for (int j=0; j < fireList.size(); j++) {
-						fireList.get(j).close();
-					}
+//					for (int j=0; j < fireList.size(); j++) {
+//						fireList.get(j).close();
+//					}
 					
 					try {
 						Thread.sleep(2000);
 					} catch (Exception e) {}
 					
-					close();
+//					close();
 					Main.bal.restartStage();
 					
 				}
 			}
 		}
+	public void touchButton() {
+		
+	}
 		@Override
 		public void run() {
 			makeItems(new Watertem(685,665));

@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
-import bricks_and_ladders.Monster;
-import bricks_and_ladders.Stage;
 
 
 public class Level1 extends JFrame {
@@ -68,7 +66,7 @@ public class Level1 extends JFrame {
 		stage.drawFire(g);
 		stage.drawWater(g);
 		stage.drawBog(g);
-		
+		stage.drawblock(g);
 		//캐릭터 그리기
 		g.drawImage(watergirl.getState(), watergirl.getPos_X(), watergirl.getPos_Y(), null);
 		
