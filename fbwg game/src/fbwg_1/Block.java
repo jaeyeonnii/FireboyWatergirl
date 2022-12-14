@@ -9,8 +9,7 @@ public class Block extends Thread{
 
 	
 	private int block_x=20, block_y=390;
-	private int bt1_x, bt1_y;
-	private int bt2_x, bt2_y;
+	private int max=470, min=390;
 	
 	public int getX() {
 		return block_x;
@@ -31,17 +30,25 @@ public class Block extends Thread{
 		public void run() {
 			while(true) {
 				if(push==true) {
-					for(;block_y<150;block_y++) {
+					if(block_y<max)
+						block_y+=10;
+					
+					try {
+						Thread.sleep(20);
+					} catch (Exception e) {
+					
 					}
 				}
-				else {
-					for(;block_y>=100;block_y--) {
+				
+				else if(push==false){
+					if(block_y>=min)
+						block_y-=10;
+				
+					try {
+						Thread.sleep(20);
+					} catch(Exception e) {
+					
 					}
-				}
-				try {
-					Thread.sleep(500);
-				} catch(InterruptedException e) {
-					e.printStackTrace();
 				}
 			}
 		}

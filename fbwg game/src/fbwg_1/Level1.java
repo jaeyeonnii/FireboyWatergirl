@@ -27,6 +27,8 @@ public class Level1 extends JFrame {
 	public static Fire f1 = new Fire(450,720);
 	public static Water w1 = new Water(650,720);
 	public static Bog b1 = new Bog(590,565);
+	//喉废 积己
+	public static Block bl = new Block();
 	
 	public Level1() { //积己磊
 		setTitle("Fireboy and Watergirl");
@@ -49,6 +51,7 @@ public class Level1 extends JFrame {
 		f1.start();
 		w1.start();
 		b1.start();
+		bl.start();
 	}
 	public void paint(Graphics g) {
 		screenImage = createImage(Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);

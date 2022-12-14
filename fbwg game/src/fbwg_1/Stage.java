@@ -106,6 +106,13 @@ public class Stage extends Thread{
 		g.drawImage(bt2,300,370,null);
 		g.drawImage(block.getblock(),block.getX(),block.getY(),null);
 	}
+	public void touchBt() {
+		if(
+				Level1.watergirl.getPos_X()+30>200&&Level1.watergirl.getPos_X()+30<220
+				&&Level1.watergirl.getPos_Y()>400&&Level1.watergirl.getPos_Y()<430) {
+			block.push=true;
+		}
+	}
 	public void touchFire() {
 		for (int i=fireList.size()-1; i >= 0; i--) {
 			if ( // 몬스터의 왼쪽에서 접근할 때
