@@ -86,6 +86,8 @@ public class Level1 extends JFrame {
 		stage.drawFire(g);
 		stage.drawWater(g);
 		stage.drawBog(g);
+		
+//		stage.drawAgain(g);
 		//페인트 함수로 돌아감
 		this.repaint();
 	}

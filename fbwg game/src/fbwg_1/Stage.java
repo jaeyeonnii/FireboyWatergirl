@@ -21,7 +21,7 @@ public class Stage extends Thread{
 	private Image bt2 = new ImageIcon(Main.class.getResource("../images/buttonP.png")).getImage();
 	private ArrayList<Block> blockList = new ArrayList<>();
 
-	private Image gameover = new ImageIcon(Main.class.getResource("../images/gameover.png")).getImage();
+//	private Gameover gameover= new Gameover();
 	
 	public ArrayList<Water> getWaterList(){
 		return waterList;
@@ -62,6 +62,10 @@ public class Stage extends Thread{
 			if(itemList.get(i) instanceof Firetem) {
 				Firetem fir = (Firetem)itemList.get(i);
 				g.drawImage(fir.getFiretem(), fir.getPos_x(), fir.getPos_y(), null);
+			}
+			else if(itemList.get(i) instanceof Watertem) {
+				Watertem wa = (Watertem)itemList.get(i);
+				g.drawImage(wa.getWatertem(), wa.getPos_x(), wa.getPos_y(), null);
 			}
 			else if(itemList.get(i) instanceof Watertem) {
 				Watertem wa = (Watertem)itemList.get(i);
@@ -111,9 +115,9 @@ public class Stage extends Thread{
 			g.drawImage(bogList.get(i).getNowState(),bogList.get(i).getX(),bogList.get(i).getY(),null);
 		}
 	}
-	public void drawAgain(Graphics g) {
-		g.drawImage(gameover, 50, 150, null);
-	}
+//	public void drawAgain(Graphics g) {
+//		g.drawImage(gameover.getImage(), gameover.getPos_x(), gameover.getPos_y(), null);
+//	}
 	public void drawblock(Graphics g) {
 		g.drawImage(bt1,200,500,null);
 		g.drawImage(bt2,300,370,null);
@@ -214,6 +218,7 @@ public class Stage extends Thread{
 		public void run() {
 			makeItems(new Watertem(685,665));
 			makeItems(new Firetem(485,665));
+			makeItems(new Gameover(50,200));
 			fireList.add(Level1.f1);
 			waterList.add(Level1.w1);
 			bogList.add(Level1.b1);
