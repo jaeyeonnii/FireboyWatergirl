@@ -16,7 +16,7 @@ public class Fbwg  extends JFrame{
    
 //   private Image screenImage;
 //   private Graphics screenGraphic;
-   
+	public static boolean next=false;
    static JPanel page1=new JPanel() {
 	   Image startback= new ImageIcon(Main.class.getResource("../images/startback.png")).getImage();
 	   Image title = new ImageIcon(Main.class.getResource("../images/title.png")).getImage();
@@ -44,8 +44,8 @@ public class Fbwg  extends JFrame{
    private ImageIcon play =new ImageIcon(Main.class.getResource("../images/play.png"));
    private ImageIcon play2 = new ImageIcon(Main.class.getResource("../images/play2.png"));
    private JButton playBt = new JButton(play);
-   
-   
+   private JButton backBt = new JButton("back");
+   private JButton choiceBt = new JButton("choice");
    
    public Fbwg() {
       setTitle("Fireboy and Watergirl");
@@ -59,17 +59,23 @@ public class Fbwg  extends JFrame{
       page1.setBounds(0, 0, Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);
       setpanel();
       btn();
+      back();
+      choice();
    }
 
    public void setpanel() {
 		/*위치 설정*/
 		playBt.setBounds(360, 400, 264, 131);
-//		playBt.setBorderPainted(false); // 테두리
-//		playBt.setContentAreaFilled(false); // 배경
-//		playBt.setFocusPainted(false); // 포커스 표시
 		playBt.setIcon(play);
 		playBt.setOpaque(false);
 		playBt.setLayout(null);
+		
+		backBt.setBounds(0,600,250,150);
+		backBt.setOpaque(false);
+		backBt.setLayout(null);
+		
+		choiceBt.setBounds(480,620,50,50);
+		choiceBt.setOpaque(false);
 		page1.setBounds(0, 0, Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);//패널1의 위치 설정
 	   page2.setBounds(0, 0, Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);//패널2의 위치 설정
 		/*레이아웃 지정*/
@@ -81,6 +87,8 @@ public class Fbwg  extends JFrame{
 	   add(page1);//프레임에 패널을 추가
 	   add(page2);//프레임에 패널을 추가
 	   page1.add(playBt);//패널1에 버튼을 추가
+	   page2.add(backBt);
+	   page2.add(choiceBt);
    }
    public void btn() {
 //	  playBt.setBounds(360,400,264,131); //위치, 크기
@@ -106,27 +114,31 @@ public class Fbwg  extends JFrame{
 	     }
 	  });
    }
-//   public void paint(Graphics g) {
-////	  screenImage = createImage(Main.SCREEN_WIDTH,Main.SCREEN_HEIGHT);
-////	  screenGraphic = screenImage.getGraphics();
-////      screenDraw(screenGraphic);
-////      g.drawImage(screenImage, 0,0,null);
-//	  g.drawImage(startback, 0, 0, null);
-//	  g.drawImage(beam,420,-100,null);
-//	  g.drawImage(beam,300,-200,null);
-//	  g.drawImage(beam,540,-200,null);
-//	  g.drawImage(title, 70, 70, null);
-//   }
+   public void back() {
+	   backBt.addMouseListener(new MouseAdapter() {
+		     
+		     @Override
+		     public void mousePressed(MouseEvent e) {
+		        //클릭 시 이벤트 처리
+		    	page1.setVisible(true);//창이 보이게
+				page2.setVisible(false);//창이 보이게
+		     }
+		  });
+   }
    
-//   public void screenDraw(Graphics g) {
-//      g.drawImage(startback, 0, 0, null);
-//      g.drawImage(beam,420,-100,null);
-//      g.drawImage(beam,300,-200,null);
-//      g.drawImage(beam,540,-200,null);
-//      g.drawImage(title, 70, 70, null);
-//
-//      paintComponents(g); //JLabel 그려줌
-//      
-//      this.repaint();
-//   }
+   public void choice() {
+	   choiceBt.addMouseListener(new MouseAdapter() {
+		     
+		     @Override
+		     public void mousePressed(MouseEvent e) {
+		        //클릭 시 이벤트 처리
+//		    	page1.setVisible(false);//창이 보이게
+//				page2.setVisible(false);//창이 보이게
+//				next=true;
+		    	 setVisible(false);
+		    	 new Level1();
+		     }
+		  });
+   }
+
 }
