@@ -14,12 +14,12 @@ public class CharMove {
     private Image fireLeftMove2= new ImageIcon(Main.class.getResource("../images/waterLeft2.png")).getImage();  //stop
     private Image fireLeftJump= new ImageIcon(Main.class.getResource("../images/waterLeft2.png")).getImage(); 
     private Image fireRightJump= new ImageIcon(Main.class.getResource("../images/waterRight2.png")).getImage(); 
-    private Image waterRightMove1= new ImageIcon(Main.class.getResource("../images/play.png")).getImage(); //기본 캐릭(불)
-    private Image waterLeftMove1= new ImageIcon(Main.class.getResource("../images/play.png")).getImage(); 
-    private Image waterRightMove2= new ImageIcon(Main.class.getResource("../images/play.png")).getImage(); //기본 캐릭(불)
-    private Image waterLeftMove2= new ImageIcon(Main.class.getResource("../images/play.png")).getImage(); 
-    private Image waterLeftJump= new ImageIcon(Main.class.getResource("../images/play.png")).getImage(); 
-    private Image waterRightJump= new ImageIcon(Main.class.getResource("../images/play.png")).getImage(); 
+    private Image waterRightMove1= new ImageIcon(Main.class.getResource("../images/waterRight.png")).getImage(); //기본 캐릭(불)
+    private Image waterLeftMove1= new ImageIcon(Main.class.getResource("../images/waterLeft.png")).getImage(); 
+    private Image waterRightMove2= new ImageIcon(Main.class.getResource("../images/waterRight2.png")).getImage(); //기본 캐릭(불)
+    private Image waterLeftMove2= new ImageIcon(Main.class.getResource("../images/waterLeft2.png")).getImage(); 
+    private Image waterLeftJump= new ImageIcon(Main.class.getResource("../images/waterLeft2.png")).getImage(); 
+    private Image waterRightJump= new ImageIcon(Main.class.getResource("../images/waterRight2.png")).getImage(); 
     
 	// 위치
 	private int pos_X, pos_Y;
@@ -108,12 +108,12 @@ public class CharMove {
 	}
 	
 	public void upper() {
-		if (crash && pos_Y > 116)  //보류!!!!!!!
+		if (pos_Y > 116)  //보류!!!!!!!
 			pos_Y -= 55;
 	}
 	
 	public void lower() {
-		if (crash && pos_Y <= 422)
+		if (pos_Y <= 422)
 			pos_Y += 55;
 	}
 	

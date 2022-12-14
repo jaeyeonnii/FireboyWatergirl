@@ -15,53 +15,46 @@ public class KeyListener extends KeyAdapter {
 	//키를 눌렀을 때 작동하는 부분
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-			Level1.charmove.moveFireLeft();
+			Level1.watergirl.moveFireLeft();
 			pressedLeftKey = true;
 		}
 		
 		else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-			Level1.charmove.moveFireRight();
+			Level1.watergirl.moveFireRight();
 			pressedRightKey = true;
 		}
 		
 		else if (e.getKeyCode() == KeyEvent.VK_UP) {
-			Level1.charmove.upper();
+			Level1.watergirl.jump();
 		}
 		
 		else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-			Level1.charmove.lower();
+			Level1.watergirl.lower();
 		}
 		
-		else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-			Level1.charmove.jump();
-			//sound = new Music("jumpSound.mp3", false);
-			//sound.start();
-			
-		}
+		
 	}
 	
 	//키를 뗐을 때 작동하는 부분
 	public void keyReleased(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-			Level1.charmove.keyRelease();
+			Level1.watergirl.keyRelease();
 			pressedLeftKey = false;
 		}
 		
 		else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-			Level1.charmove.keyRelease();
+			Level1.watergirl.keyRelease();
 			pressedRightKey = false;
 		}
 		
 		else if (e.getKeyCode() == KeyEvent.VK_UP) {
-			
+			Level1.watergirl.descend();
 		}
 		
 		else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 			
 		}
 		
-		else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-			Level1.charmove.descend();
-		}
+		
 	}
 }

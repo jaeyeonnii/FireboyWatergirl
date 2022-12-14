@@ -21,7 +21,7 @@ public class Level1 extends JFrame {
 	public static Stage stage = new Stage();
 	
 	//캐릭터 생성
-	public static CharMove charmove = new CharMove();
+	public static CharMove watergirl = new CharMove();
 	//장애물 생성
 	public static Fire f1 = new Fire(450,720);
 	public static Water w1 = new Water(650,720);
@@ -40,9 +40,9 @@ public class Level1 extends JFrame {
 		addKeyListener(new KeyListener());
 		
 		//캐릭터 초기 설정
-		charmove.setPosition(165, 425);
-		charmove.setDirection("right");
-		charmove.setState(charmove.getfireRightMove());
+		watergirl.setPosition(165, 425);
+		watergirl.setDirection("right");
+		watergirl.setState(watergirl.getfireRightMove());
 		
 		stage.start();
 		f1.start();
@@ -67,7 +67,7 @@ public class Level1 extends JFrame {
 		stage.drawBog(g);
 		
 		//캐릭터 그리기
-		g.drawImage(charmove.getState(), charmove.getPos_X(), charmove.getPos_Y(), null);
+		g.drawImage(watergirl.getState(), watergirl.getPos_X(), watergirl.getPos_Y(), null);
 		
 		//페인트 함수로 돌아감
 		this.repaint();
