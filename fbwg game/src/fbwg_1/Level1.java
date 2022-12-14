@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
+import bricks_and_ladders.Monster;
+import bricks_and_ladders.Stage;
+
 
 public class Level1 extends JFrame {
 
@@ -71,5 +74,26 @@ public class Level1 extends JFrame {
 		
 		//페인트 함수로 돌아감
 		this.repaint();
+	}
+	
+	public void restartStage() {
+		stage.getFireList().clear();
+		stage.getWaterList().clear();
+		stage.getBogList().clear();
+		stage.getItemList().clear();
+		
+		stage = new Stage();
+		f1 = new Fire(450,720);
+		w1 = new Water(650,720);
+		b1 = new Bog(590,565);
+		//이재연
+		watergirl.setPosition(165, 425); 
+		watergirl.setDirection("left");
+		watergirl.setState(watergirl.getAlfyLeftMove());
+		
+		stage.start();
+		f1.start();
+		w1.start();
+		b1.start();
 	}
 }
