@@ -87,7 +87,7 @@ public class Level1 extends JFrame {
 		//¿Ã¿Áø¨
 		watergirl.setPosition(165, 425); 
 		watergirl.setDirection("left");
-		watergirl.setState(watergirl.getAlfyLeftMove());
+		watergirl.setState(watergirl.getfireLeftMove());
 		
 		stage.start();
 		f1.start();

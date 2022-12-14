@@ -5,7 +5,11 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class CharMove {
 	// 이미지 파일
 	private Image fireRightMove1= new ImageIcon(Main.class.getResource("../images/waterRight.png")).getImage(); //기본 캐릭(불)
@@ -20,6 +24,12 @@ public class CharMove {
     private Image waterLeftMove2= new ImageIcon(Main.class.getResource("../images/waterLeft2.png")).getImage(); 
     private Image waterLeftJump= new ImageIcon(Main.class.getResource("../images/waterLeft2.png")).getImage(); 
     private Image waterRightJump= new ImageIcon(Main.class.getResource("../images/waterRight2.png")).getImage(); 
+    private boolean left;
+    private boolean right;
+    int i =0;
+    
+    
+   
     
 	// 위치
 	private int pos_X, pos_Y;
@@ -85,26 +95,64 @@ public class CharMove {
 	public Image getwaterRightMove() {//getAlfyRightMove
 		return waterRightMove1;
 	}
+	
 
 	public void moveFireRight() {
-		if (direction.equals("left")) {
-			direction = "right";
-		}
+		right = true;
 		
-		if (pos_X <= 1000)
-			pos_X += 30;
+		new Thread(()->{
+			while(right) {
+				if (direction.equals("left")) {
+					direction = "right";
+				}
+				
+				if (pos_X <= 1000)
+					pos_X += 10;
+				if(i==0) {
+					state = fireRightMove1; 
+					i=1;
+				}else {
+					state = fireRightMove2; 
+					i=0;
+				}
+				
+				try {
+					Thread.sleep(50);
+				}catch(InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}).start();
 		
-		state = fireRightMove1; 
+		
+		
 	}
 	
 	public void moveFireLeft() {
-		if (direction.equals("right")) {
-			direction = "left";
-		}
+		left = true;
+		new Thread(()->{
+			while(left) {
+				if (direction.equals("right")) {
+					direction = "left";
+				}
+				
+				if (pos_X >= 0)
+					pos_X -= 10;
+				if(i==0) {
+					state = fireLeftMove1; 
+					i=1;
+				}else {
+					state = fireLeftMove2; 
+					i=0;
+				}
+				try {
+					Thread.sleep(50);
+				}catch(InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}).start();
 		
-		if (pos_X >= 0)
-			pos_X -= 30;
-		state = fireLeftMove1;
 	}
 	
 	public void upper() {
