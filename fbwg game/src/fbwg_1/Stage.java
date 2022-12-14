@@ -10,14 +10,21 @@ public class Stage extends Thread{
 	
 	//아이템 담을 리스트
 	private ArrayList<FWItem> itemList = new ArrayList<>();
+	//장애물
+	private ArrayList<Fire> fireList = new ArrayList<>();
 	
+	public ArrayList<Fire> getFireList(){
+		return fireList;
+	}
 	public ArrayList<FWItem> getItemList(){
 		return itemList;
 	}
 	public void makeItems(FWItem item) {
 		itemList.add(item);
 	}
-
+	public void makeFire(Fire fire) {
+		fireList.add(fire);
+	}
 	public void drawItems(Graphics g) {
 		for (int i=0; i< itemList.size(); i++) {
 			if(itemList.get(i) instanceof Firetem) {
@@ -30,9 +37,13 @@ public class Stage extends Thread{
 			}
 		}
 	}
+	public void drawFire(Graphics g) {
+		for(int i= 0; i< fireList.size();i++) {
+			g.drawImage(fireList.get(i).getNowState(),100,100,null);
+		}
+	}
 		@Override
 		public void run() {
-			makeItems(new Watertem(500,200));
 			makeItems(new Watertem(600,170));
 			makeItems(new Firetem(100,100));
 		}
