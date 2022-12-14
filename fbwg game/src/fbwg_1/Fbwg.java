@@ -17,6 +17,7 @@ public class Fbwg  extends JFrame{
 //   private Image screenImage;
 //   private Graphics screenGraphic;
 	public static boolean next=false;
+	   public static Level1 bal;
    static JPanel page1=new JPanel() {
 	   Image startback= new ImageIcon(Main.class.getResource("../images/startback.png")).getImage();
 	   Image title = new ImageIcon(Main.class.getResource("../images/title.png")).getImage();
@@ -140,7 +141,7 @@ public class Fbwg  extends JFrame{
 //				page2.setVisible(false);//창이 보이게
 //				next=true;
 		    	 setVisible(false);
-		    	 new Level1();
+		    	 bal=new Level1();
 		    	 introMusic.close();
 		     }
 		  });

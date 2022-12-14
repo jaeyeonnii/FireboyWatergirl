@@ -171,7 +171,7 @@ public class Stage extends Thread{
 					} catch (Exception e) {}
 					
 //					close();
-					Main.bal.restartStage();
+					Fbwg.bal.restartStage();
 					
 				}
 			}
