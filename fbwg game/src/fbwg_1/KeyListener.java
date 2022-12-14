@@ -7,28 +7,45 @@ import java.awt.event.KeyEvent;
 public class KeyListener extends KeyAdapter {
 	//private Music sound;
 	
-	//점프 시 왼쪽 또는 오른쪽 방향키가 눌렸는지 확인하기 위해 선언
-	public static boolean pressedLeftKey = false;
-	public static boolean pressedRightKey = false;
+//	//점프 시 왼쪽 또는 오른쪽 방향키가 눌렸는지 확인하기 위해 선언
+//	public static boolean pressedLeftKey = false;
+//	public static boolean pressedRightKey = false;
 	
 	@Override
 	//키를 눌렀을 때 작동하는 부분
 	public void keyPressed(KeyEvent e) {
 		switch(e.getKeyCode()) {
 		case KeyEvent.VK_LEFT:
-			if(!Level1.watergirl.isLeft()) {
-				Level1.watergirl.moveFireLeft();
+			if(!Level1.fireboy.isLeft()) {
+				Level1.fireboy.moveFireLeft();
 			}
 			break;
 		case KeyEvent.VK_RIGHT:
-			if(!Level1.watergirl.isRight()) {
-				Level1.watergirl.moveFireRight();
+			if(!Level1.fireboy.isRight()) {
+				Level1.fireboy.moveFireRight();
 			}
 			break;
 		case KeyEvent.VK_UP:
-			Level1.watergirl.up();
+			Level1.fireboy.up();
 			break;
 		case KeyEvent.VK_DOWN:
+			Level1.fireboy.down();
+			break;
+			
+		case KeyEvent.VK_A:
+			if(!Level1.watergirl.isLeft()) {
+				Level1.watergirl.moveWaterLeft();
+			}
+			break;
+		case KeyEvent.VK_D:
+			if(!Level1.watergirl.isRight()) {
+				Level1.watergirl.moveWaterRight();
+			}
+			break;
+		case KeyEvent.VK_W:
+			Level1.watergirl.up();
+			break;
+		case KeyEvent.VK_S:
 			Level1.watergirl.down();
 			break;
 		}
@@ -75,9 +92,15 @@ public class KeyListener extends KeyAdapter {
 		
 		switch(e.getKeyCode()) {
 		case KeyEvent.VK_LEFT:
-			Level1.watergirl.setLeft(false);
+			Level1.fireboy.setLeft(false);
 			break;
 		case KeyEvent.VK_RIGHT:
+			Level1.fireboy.setRight(false);
+			break;
+		case KeyEvent.VK_A:
+			Level1.watergirl.setLeft(false);
+			break;
+		case KeyEvent.VK_D:
 			Level1.watergirl.setRight(false);
 			break;
 		

@@ -12,18 +12,14 @@ import lombok.Setter;
 @Setter
 public class CharMove {
 	// 이미지 파일
-	private Image fireRightMove1= new ImageIcon(Main.class.getResource("../images/waterRight.png")).getImage(); //기본 캐릭(불)
-    private Image fireLeftMove1= new ImageIcon(Main.class.getResource("../images/waterLeft.png")).getImage(); 
-    private Image fireRightMove2= new ImageIcon(Main.class.getResource("../images/waterRight2.png")).getImage(); //stop
-    private Image fireLeftMove2= new ImageIcon(Main.class.getResource("../images/waterLeft2.png")).getImage();  //stop
-    private Image fireLeftJump= new ImageIcon(Main.class.getResource("../images/waterLeft2.png")).getImage(); 
-    private Image fireRightJump= new ImageIcon(Main.class.getResource("../images/waterRight2.png")).getImage(); 
+	private Image fireRightMove1= new ImageIcon(Main.class.getResource("../images/fireRight1.png")).getImage(); //기본 캐릭(불)
+    private Image fireLeftMove1= new ImageIcon(Main.class.getResource("../images/fireLeft1.png")).getImage(); 
+    private Image fireRightMove2= new ImageIcon(Main.class.getResource("../images/fireRight2.png")).getImage(); //stop
+    private Image fireLeftMove2= new ImageIcon(Main.class.getResource("../images/fireLeft2.png")).getImage();  //stop
     private Image waterRightMove1= new ImageIcon(Main.class.getResource("../images/waterRight.png")).getImage(); //기본 캐릭(불)
     private Image waterLeftMove1= new ImageIcon(Main.class.getResource("../images/waterLeft.png")).getImage(); 
     private Image waterRightMove2= new ImageIcon(Main.class.getResource("../images/waterRight2.png")).getImage(); //기본 캐릭(불)
     private Image waterLeftMove2= new ImageIcon(Main.class.getResource("../images/waterLeft2.png")).getImage(); 
-    private Image waterLeftJump= new ImageIcon(Main.class.getResource("../images/waterLeft2.png")).getImage(); 
-    private Image waterRightJump= new ImageIcon(Main.class.getResource("../images/waterRight2.png")).getImage(); 
     private boolean left;
     private boolean right;
     private boolean up;
@@ -106,11 +102,11 @@ public class CharMove {
 		
 		new Thread(()->{
 			while(right) {
-				if (direction.equals("left")) {
-					direction = "right";
+				if (direction.equals("Fleft")) {
+					direction = "Fright";
 				}
 				
-				if (pos_X <= 1000)
+				if (pos_X <= 750)
 					pos_X += SPEED;
 				if(i==0) {
 					state = fireRightMove1; 
@@ -136,8 +132,8 @@ public class CharMove {
 		left = true;
 		new Thread(()->{
 			while(left) {
-				if (direction.equals("right")) {
-					direction = "left";
+				if (direction.equals("Fright")) {
+					direction = "Fleft";
 				}
 				
 				if (pos_X >= 0)
@@ -147,6 +143,63 @@ public class CharMove {
 					i=1;
 				}else {
 					state = fireLeftMove2; 
+					i=0;
+				}
+				try {
+					Thread.sleep(50);
+				}catch(InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}).start();
+		
+	}
+	public void moveWaterRight() {
+		right = true;
+		
+		new Thread(()->{
+			while(right) {
+				if (direction.equals("Wleft")) {
+					direction = "Wright";
+				}
+				
+				if (pos_X <= 750)
+					pos_X += SPEED;
+				if(i==0) {
+					state = waterRightMove1; 
+					i=1;
+				}else {
+					state = waterRightMove2; 
+					i=0;
+				}
+				
+				try {
+					Thread.sleep(50);
+				}catch(InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}).start();
+		
+		
+		
+	}
+	
+	public void moveWaterLeft() {
+		left = true;
+		new Thread(()->{
+			while(left) {
+				if (direction.equals("Wright")) {
+					direction = "Wleft";
+				}
+				
+				if (pos_X >= 0)
+					pos_X -= SPEED;
+				if(i==0) {
+					state = waterLeftMove1; 
+					i=1;
+				}else {
+					state = waterLeftMove2; 
 					i=0;
 				}
 				try {
@@ -211,6 +264,7 @@ public class CharMove {
 		new Thread(()->{
 			for(int i =0; i<60/JUMPSPEED; i++) {
 				pos_Y+=JUMPSPEED;
+				if(pos_Y>=800) break;
 				try {
 					Thread.sleep(3);
 				}catch(InterruptedException e) {
@@ -242,18 +296,22 @@ public class CharMove {
 	}
 	
 	public void keyRelease() {
-		if (direction.equals("left"))
+		if (direction.equals("Fleft"))
 			state = fireLeftMove2;
-		else if (direction.equals("right"))
+		else if (direction.equals("Fright"))
 			state = fireRightMove2;
+		else if (direction.equals("Wright"))
+			state = waterRightMove2;
+		else if (direction.equals("Wright"))
+			state = waterRightMove2;
 	}
 	
-//	public void checkLaddering() {
-//		if (300 <= getPos_X() && getPos_X() <= 360)
-//			crash = true;
-//		else
-//			crash = false;
-//	}
+	public void checkLaddering() {
+		if (300 <= getPos_X() && getPos_X() <= 360)
+			crash = true;
+		else
+			crash = false;
+	}
 	
 //	public void dropAlfy() {
 //		if (528 <= getPos_X() && getPos_X()+64 <= 854 && 500 <= getPos_Y() + 120 

@@ -23,6 +23,7 @@ public class Level1 extends JFrame {
 	
 	//캐릭터 생성
 	public static CharMove watergirl = new CharMove();
+	public static CharMove fireboy = new CharMove();
 	//장애물 생성
 	public static Fire f1 = new Fire(450,720);
 	public static Water w1 = new Water(650,720);
@@ -44,7 +45,11 @@ public class Level1 extends JFrame {
 		//캐릭터 초기 설정
 		watergirl.setPosition(165, 425);
 		watergirl.setDirection("right");
-		watergirl.setState(watergirl.getfireRightMove());
+		watergirl.setState(watergirl.getwaterRightMove());
+		
+		fireboy.setPosition(100, 300);
+		fireboy.setDirection("right");
+		fireboy.setState(fireboy.getfireRightMove());
 		
 		stage.start();
 		f1.start();
@@ -71,6 +76,7 @@ public class Level1 extends JFrame {
 		stage.drawblock(g);
 		//캐릭터 그리기
 		g.drawImage(watergirl.getState(), watergirl.getPos_X(), watergirl.getPos_Y(), null);
+		g.drawImage(fireboy.getState(), fireboy.getPos_X(), fireboy.getPos_Y(), null);
 		
 		//페인트 함수로 돌아감
 		this.repaint();
@@ -87,9 +93,13 @@ public class Level1 extends JFrame {
 		w1 = new Water(650,720);
 		b1 = new Bog(590,565);
 		//이재연
-		watergirl.setPosition(165, 425); 
-		watergirl.setDirection("left");
-		watergirl.setState(watergirl.getfireLeftMove());
+		watergirl.setPosition(165, 425);
+		watergirl.setDirection("right");
+		watergirl.setState(watergirl.getwaterRightMove());
+		
+		fireboy.setPosition(100, 300);
+		fireboy.setDirection("right");
+		fireboy.setState(fireboy.getfireRightMove());
 		
 		stage.start();
 		f1.start();
