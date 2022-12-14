@@ -264,7 +264,6 @@ public class CharMove {
 		new Thread(()->{
 			for(int i =0; i<60/JUMPSPEED; i++) {
 				pos_Y+=JUMPSPEED;
-				if(pos_Y>=800) break;
 				try {
 					Thread.sleep(3);
 				}catch(InterruptedException e) {
