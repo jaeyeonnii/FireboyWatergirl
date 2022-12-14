@@ -1,6 +1,6 @@
 package fbwg_1;
 
-import javafx.stage.*;
+
 import java.awt.Graphics;
 import java.awt.Image;
 import java.util.ArrayList;
@@ -73,10 +73,11 @@ public class Level1 extends JFrame {
 	private Image screenImage;
 	private Graphics screenGraphic;
 	
+	//사용할 이미지
 	private Image background = new ImageIcon(Main.class.getResource("../images/level1back.png")).getImage();
 	
 	//스테이지 생성
-	//public static Stage stage = new Stage();
+	public static Stage stage = new Stage();
 	
 	public Level1() { //생성자
 		setTitle("Fireboy and Watergirl");
@@ -104,78 +105,4 @@ public class Level1 extends JFrame {
 		//페인트 함수로 돌아감
 		this.repaint();
 	}
-	public class Item {
-		private int pos_x, pos_y;
-		
-		public Item(int pos_x, int pos_y) {
-			this.pos_x = pos_x;
-			this.pos_y = pos_y;
-		}
-		
-		public int getPos_x() {
-			return pos_x;
-		}
-		public void setPos_x(int pos_x) {
-			this.pos_x= pos_x;
-		}
-		public int getPos_y() {
-			return pos_y;
-		}
-		public void setPos_y(int pos_y) {
-			this.pos_y= pos_y;
-		}
-	}
-	public class Firetem extends Item {
-		private Image firetem = new ImageIcon(Main.class.getResource("../images/fireitem.png")).getImage();
-		
-		public Firetem(int pos_x, int pos_y) {
-			super(pos_x, pos_y);
-		}
-		public Image getFiretem() {
-			return firetem;
-		}
-	}
-	
-	public class Watertem extends Item {
-		private Image watertem = new ImageIcon(Main.class.getResource("../images/wateritem.png")).getImage();
-		
-		public Watertem(int pos_x, int pos_y) {
-			super(pos_x, pos_y);
-		}
-		public Image getWatertem() {
-			return watertem;
-		}
-	}
-	
-	public class Stage extends Thread{
-		private ArrayList<Item> itemList = new ArrayList<>();
-		
-		public ArrayList<Item> getItemList(){
-			return itemList;
-		}
-		public void makeItems(Item item) {
-			itemList.add(item);
-		}
-	
-		public void drawItems(Graphics g) {
-			for (int i=0; i< itemList.size(); i++) {
-				if(itemList.get(i) instanceof Firetem) {
-					Firetem fir = (Firetem)itemList.get(i);
-					g.drawImage(fir.getFiretem(), fir.getPos_x(), fir.getPos_y(), null);
-				}
-				else if(itemList.get(i) instanceof Watertem) {
-					Watertem wa = (Watertem)itemList.get(i);
-					g.drawImage(wa.getWatertem(), wa.getPos_x(), wa.getPos_y(), null);
-				}
-			}
-		}
-			@Override
-			public void run() {
-				makeItems(new Watertem(10,10));
-				makeItems(new Firetem(100,10));
-			}
-		
-	}
 }
-
-	
