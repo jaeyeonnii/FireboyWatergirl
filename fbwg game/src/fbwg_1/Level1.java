@@ -98,8 +98,8 @@ public class Level1 extends JFrame {
 		
 		//캐릭터 초기 설정
 		charmove.setPosition(165, 425);
-		charmove.setDirection("left");
-		charmove.setState(charmove.getfireLeftMove());
+		charmove.setDirection("right");
+		charmove.setState(charmove.getfireRightMove());
 		
 		stage.start();
 		f1.start();

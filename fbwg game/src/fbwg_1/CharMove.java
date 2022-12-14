@@ -12,8 +12,8 @@ public class CharMove {
     private Image fireLeftMove1= new ImageIcon(Main.class.getResource("../images/waterLeft.png")).getImage(); 
     private Image fireRightMove2= new ImageIcon(Main.class.getResource("../images/waterRight2.png")).getImage(); //stop
     private Image fireLeftMove2= new ImageIcon(Main.class.getResource("../images/waterLeft2.png")).getImage();  //stop
-    private Image fireLeftJump= new ImageIcon(Main.class.getResource("../images/play.png")).getImage(); 
-    private Image fireRightJump= new ImageIcon(Main.class.getResource("../images/play.png")).getImage(); 
+    private Image fireLeftJump= new ImageIcon(Main.class.getResource("../images/waterLeft2.png")).getImage(); 
+    private Image fireRightJump= new ImageIcon(Main.class.getResource("../images/waterRight2.png")).getImage(); 
     private Image waterRightMove1= new ImageIcon(Main.class.getResource("../images/play.png")).getImage(); //기본 캐릭(불)
     private Image waterLeftMove1= new ImageIcon(Main.class.getResource("../images/play.png")).getImage(); 
     private Image waterRightMove2= new ImageIcon(Main.class.getResource("../images/play.png")).getImage(); //기본 캐릭(불)
