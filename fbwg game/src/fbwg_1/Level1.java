@@ -21,6 +21,7 @@ public class Level1 extends JFrame {
 	
 	//사용할 음악
 	public Music playMusic = new Music("Level Music.mp3", true);
+	
 	//스테이지 생성
 	public static Stage stage = new Stage();
 	
