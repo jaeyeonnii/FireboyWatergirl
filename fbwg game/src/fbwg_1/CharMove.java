@@ -226,9 +226,10 @@ public class CharMove {
 		up = true;
 		new Thread(()->{
 			for(int i =0; i<60/JUMPSPEED; i++) {
+				pos_X+=JUMPSPEED;
 				pos_Y-=JUMPSPEED;
 				try {
-					Thread.sleep(3);
+					Thread.sleep(50);
 				}catch(InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -263,9 +264,10 @@ public class CharMove {
 		down = true;
 		new Thread(()->{
 			for(int i =0; i<60/JUMPSPEED; i++) {
+				pos_X+=JUMPSPEED;
 				pos_Y+=JUMPSPEED;
 				try {
-					Thread.sleep(3);
+					Thread.sleep(50);
 				}catch(InterruptedException e) {
 					e.printStackTrace();
 				}
