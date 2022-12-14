@@ -22,6 +22,7 @@ public class Fbwg  extends JFrame{
 	   Image title = new ImageIcon(Main.class.getResource("../images/title.png")).getImage();
 	   Image beam = new ImageIcon(Main.class.getResource("../images/Beam.png")).getImage();
 	   Image play = new ImageIcon(Main.class.getResource("../images/play.png")).getImage();
+	   
 	   public void paint(Graphics g) {
 
 			  g.drawImage(startback, 0, 0, null);
@@ -46,7 +47,7 @@ public class Fbwg  extends JFrame{
    private JButton playBt = new JButton(play);
    private JButton backBt = new JButton("back");
    private JButton choiceBt = new JButton("choice");
-   
+   public Music introMusic = new Music("Menu Music.mp3", true);
    public Fbwg() {
       setTitle("Fireboy and Watergirl");
       setSize(Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);
@@ -61,6 +62,9 @@ public class Fbwg  extends JFrame{
       btn();
       back();
       choice();
+      
+//      Music introMusic = new Music("Menu Music.mp3", true);
+      introMusic.start();
    }
 
    public void setpanel() {
@@ -137,6 +141,7 @@ public class Fbwg  extends JFrame{
 //				next=true;
 		    	 setVisible(false);
 		    	 new Level1();
+		    	 introMusic.close();
 		     }
 		  });
    }
