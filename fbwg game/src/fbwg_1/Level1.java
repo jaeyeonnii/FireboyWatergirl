@@ -87,7 +87,7 @@ public class Level1 extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //게임창 종료시 프로그램 종료 (중요)
 		setLayout(null);
 		setVisible(true); //화면출력
-		//stage.start();
+		stage.start();
 	}
 	public void paint(Graphics g) {
 		screenImage = createImage(Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);
@@ -100,7 +100,7 @@ public class Level1 extends JFrame {
 		g.drawImage(background, 0, 0, null);
 		
 		//템 오프스크린에 그림
-		//stage.drawItems(g);
+		stage.drawItems(g);
 		
 		//페인트 함수로 돌아감
 		this.repaint();
