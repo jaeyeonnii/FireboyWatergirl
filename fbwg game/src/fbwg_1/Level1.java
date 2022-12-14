@@ -79,6 +79,9 @@ public class Level1 extends JFrame {
 	//스테이지 생성
 	public static Stage stage = new Stage();
 	
+	//캐릭터 생성
+	public static CharMove charmove = new CharMove();
+	
 	public Level1() { //생성자
 		setTitle("Fireboy and Watergirl");
 		setSize(Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   );
@@ -87,6 +90,15 @@ public class Level1 extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //게임창 종료시 프로그램 종료 (중요)
 		setLayout(null);
 		setVisible(true); //화면출력
+		
+		//키 리스너 생성
+		addKeyListener(new KeyListener());
+		
+		//캐릭터 초기 설정
+		charmove.setPosition(165, 425);
+		charmove.setDirection("left");
+		charmove.setState(charmove.getfireLeftMove());
+		
 		stage.start();
 	}
 	public void paint(Graphics g) {
@@ -94,6 +106,7 @@ public class Level1 extends JFrame {
 		screenGraphic =screenImage.getGraphics();
 		screenDraw(screenGraphic);
 		g.drawImage(screenImage, 0, 0, null);
+		
 	}
 	private void screenDraw(Graphics g) {
 		//맵을 오프스크린에 그림
@@ -101,6 +114,9 @@ public class Level1 extends JFrame {
 		
 		//템 오프스크린에 그림
 		stage.drawItems(g);
+		
+		//캐릭터 그리기
+		g.drawImage(charmove.getState(), charmove.getPos_X(), charmove.getPos_Y(), null);
 		
 		//페인트 함수로 돌아감
 		this.repaint();
