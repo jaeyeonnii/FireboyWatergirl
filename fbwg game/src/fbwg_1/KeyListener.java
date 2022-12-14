@@ -28,9 +28,7 @@ public class KeyListener extends KeyAdapter {
 		case KeyEvent.VK_UP:
 			Level1.fireboy.up();
 			break;
-		case KeyEvent.VK_DOWN:
-			Level1.fireboy.down();
-			break;
+		
 			
 		case KeyEvent.VK_A:
 			if(!Level1.watergirl.isLeft()) {
@@ -45,9 +43,7 @@ public class KeyListener extends KeyAdapter {
 		case KeyEvent.VK_W:
 			Level1.watergirl.up();
 			break;
-		case KeyEvent.VK_S:
-			Level1.watergirl.down();
-			break;
+		
 		}
 //		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 //			Level1.watergirl.moveFireLeft();
