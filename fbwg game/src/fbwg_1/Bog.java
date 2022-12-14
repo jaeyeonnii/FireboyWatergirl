@@ -7,8 +7,8 @@ import javax.swing.ImageIcon;
 
 public class Bog extends Thread{
 	//사용할 이미지
-	private Image bog1 = new ImageIcon(Main.class.getResource("../images/lava1.png")).getImage();
-	private Image bog2 = new ImageIcon(Main.class.getResource("../images/lava2.png")).getImage();
+	private Image bog1 = new ImageIcon(Main.class.getResource("../images/bog1.png")).getImage();
+	private Image bog2 = new ImageIcon(Main.class.getResource("../images/bog2.png")).getImage();
 	
 	//위치
 	private int x, y;
