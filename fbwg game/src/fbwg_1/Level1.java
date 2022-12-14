@@ -25,7 +25,7 @@ public class Level1 extends JFrame {
 	//厘局拱 积己
 	public static Fire f1 = new Fire(450,720);
 	public static Water w1 = new Water(650,720);
-	public static Bog b1 = new Bog(570,565);
+	public static Bog b1 = new Bog(590,565);
 	
 	public Level1() { //积己磊
 		setTitle("Fireboy and Watergirl");

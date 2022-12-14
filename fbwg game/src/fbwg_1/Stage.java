@@ -72,8 +72,8 @@ public class Stage extends Thread{
 	
 		@Override
 		public void run() {
-			makeItems(new Watertem(600,170));
-			makeItems(new Firetem(100,100));
+			makeItems(new Watertem(685,650));
+			makeItems(new Firetem(485,650));
 			fireList.add(Level1.f1);
 			waterList.add(Level1.w1);
 			bogList.add(Level1.b1);
