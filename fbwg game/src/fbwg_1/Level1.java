@@ -81,6 +81,8 @@ public class Level1 extends JFrame {
 	
 	//캐릭터 생성
 	public static CharMove charmove = new CharMove();
+	//장애물 생성
+	public static Fire f1 = new Fire(450,720);
 	
 	public Level1() { //생성자
 		setTitle("Fireboy and Watergirl");
@@ -100,6 +102,7 @@ public class Level1 extends JFrame {
 		charmove.setState(charmove.getfireLeftMove());
 		
 		stage.start();
+		f1.start();
 	}
 	public void paint(Graphics g) {
 		screenImage = createImage(Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);
@@ -112,8 +115,9 @@ public class Level1 extends JFrame {
 		//맵을 오프스크린에 그림
 		g.drawImage(background, 0, 0, null);
 		
-		//템 오프스크린에 그림
+		//템, 장애물 오프스크린에 그림
 		stage.drawItems(g);
+		stage.drawFire(g);
 		
 		//캐릭터 그리기
 		g.drawImage(charmove.getState(), charmove.getPos_X(), charmove.getPos_Y(), null);

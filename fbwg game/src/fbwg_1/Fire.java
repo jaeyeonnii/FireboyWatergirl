@@ -17,12 +17,19 @@ public class Fire extends Thread{
 	private Image nowState = fire1;
 	//»ı¼ºÀÚ
 	public Fire(int x, int y) {
-		this.x = x;
-		this.y = y;
+		this.x=x;
+		this.y=y;
 	}
 	public Image getNowState() {
 		return nowState;
 	}
+	public int getX() {
+		return x;
+	}
+	public int getY() {
+		return y;
+	}
+	@Override
 	public void run() {
 		while(true) {
 			if(step == false) {

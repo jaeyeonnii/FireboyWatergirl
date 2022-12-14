@@ -39,13 +39,14 @@ public class Stage extends Thread{
 	}
 	public void drawFire(Graphics g) {
 		for(int i= 0; i< fireList.size();i++) {
-			g.drawImage(fireList.get(i).getNowState(),100,100,null);
+			g.drawImage(fireList.get(i).getNowState(),fireList.get(i).getX(),fireList.get(i).getY(),null);
 		}
 	}
 		@Override
 		public void run() {
 			makeItems(new Watertem(600,170));
 			makeItems(new Firetem(100,100));
+			fireList.add(Level1.f1);
 		}
 	
 }
