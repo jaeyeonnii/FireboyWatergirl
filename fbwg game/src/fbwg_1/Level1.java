@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 
 
 
+
 public class Level1 extends JFrame {
 
 	//더블 버퍼링을 활용 변수 선언

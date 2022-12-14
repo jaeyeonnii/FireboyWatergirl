@@ -71,14 +71,14 @@ public class Stage extends Thread{
 	public void eatItems() { //아이템 먹기
 		for (int i=itemList.size()-1;i>=0; i--) {
 			if ( // 아이템의 왼쪽에서 접근할 때
-					itemList.get(i).getPos_x() <= Level1.watergirl.getPos_X()+64 
+					itemList.get(i).getPos_x() <= Level1.watergirl.getPos_X()+20 
 						&& Level1.watergirl.getPos_X()+64 <= itemList.get(i).getPos_x() + 56 
-						&& Level1.watergirl.getPos_Y()+128 >= itemList.get(i).getPos_y() 
+						&& Level1.watergirl.getPos_Y()+50 >= itemList.get(i).getPos_y() 
 						&& Level1.watergirl.getPos_Y() <= itemList.get(i).getPos_y()
 					// 아이템의 오른쪽에서 접근할 때 
-					|| Level1.watergirl.getPos_X() <= itemList.get(i).getPos_x() + 56 
+					|| Level1.watergirl.getPos_X() <= itemList.get(i).getPos_x() + 20 
 						&& Level1.watergirl.getPos_X() >= itemList.get(i).getPos_x()
-						&& Level1.watergirl.getPos_Y()+128 >= itemList.get(i).getPos_y() 
+						&& Level1.watergirl.getPos_Y()+50 >= itemList.get(i).getPos_y() 
 						&& Level1.watergirl.getPos_Y() <= itemList.get(i).getPos_y()) 
 				{
 //					if (itemList.get(i) instanceof watertem){
@@ -124,12 +124,14 @@ public class Stage extends Thread{
 			g.drawImage(blockList.get(i).getimage(),blockList.get(i).getX(),blockList.get(i).getY(),null);
 		}
 	}
-	public void touchBt() {
+	public void touchBt() { //파이어 보이 구현해야함
 		for(int i=blockList.size()-1; i >= 0; i--)
 		{
 			if(
 				Level1.watergirl.getPos_X()+60>200&&Level1.watergirl.getPos_X()+30<220
 				&&Level1.watergirl.getPos_Y()>400&&Level1.watergirl.getPos_Y()<430
+				||Level1.watergirl.getPos_X()+60>300&&Level1.watergirl.getPos_X()+30<320
+				&&Level1.watergirl.getPos_Y()>270&&Level1.watergirl.getPos_Y()<300
 				) 
 			{
 			blockList.get(i).pushing();
