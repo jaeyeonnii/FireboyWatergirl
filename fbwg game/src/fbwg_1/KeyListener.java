@@ -26,10 +26,10 @@ public class KeyListener extends KeyAdapter {
 			}
 			break;
 		case KeyEvent.VK_UP:
-			Level1.watergirl.jump();
+			Level1.watergirl.up();
 			break;
 		case KeyEvent.VK_DOWN:
-			Level1.watergirl.lower();
+			Level1.watergirl.down();
 			break;
 		}
 //		if (e.getKeyCode() == KeyEvent.VK_LEFT) {

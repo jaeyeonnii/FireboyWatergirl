@@ -26,6 +26,10 @@ public class CharMove {
     private Image waterRightJump= new ImageIcon(Main.class.getResource("../images/waterRight2.png")).getImage(); 
     private boolean left;
     private boolean right;
+    private boolean up;
+    private boolean down;
+    private final int SPEED = 10;
+    private final int JUMPSPEED = 2;
     int i =0;
     
     
@@ -107,7 +111,7 @@ public class CharMove {
 				}
 				
 				if (pos_X <= 1000)
-					pos_X += 10;
+					pos_X += SPEED;
 				if(i==0) {
 					state = fireRightMove1; 
 					i=1;
@@ -137,7 +141,7 @@ public class CharMove {
 				}
 				
 				if (pos_X >= 0)
-					pos_X -= 10;
+					pos_X -= SPEED;
 				if(i==0) {
 					state = fireLeftMove1; 
 					i=1;
@@ -165,48 +169,76 @@ public class CharMove {
 			pos_Y += 55;
 	}
 	
-	public void jump() {
+	public void up() {
+		up = true;
+		new Thread(()->{
+			for(int i =0; i<60/JUMPSPEED; i++) {
+				pos_Y-=JUMPSPEED;
+				try {
+					Thread.sleep(5);
+				}catch(InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			up = false;
+			down();
+			
+		}).start();
 		
-		if (direction.equals("left") && KeyListener.pressedLeftKey) {
-			pos_X -= 100;
-			pos_Y -= 60;
-			state = fireLeftJump;
-		}
-		else if (direction.equals("right") && KeyListener.pressedRightKey) {
-			pos_X += 100;
-			pos_Y -= 60;
-			state = fireRightJump;
-		}	
-		else if (direction.equals("left") && !KeyListener.pressedLeftKey) {
-			pos_Y -= 60;
-			state = waterLeftJump;
-		}
-		else if (direction.equals("right")) {
-			pos_Y -= 60;
-			state = waterRightJump;
-		}
+//		if (direction.equals("left") && KeyListener.pressedLeftKey) {
+//			pos_X -= 100;
+//			pos_Y -= 60;
+//			state = fireLeftJump;
+//		}
+//		else if (direction.equals("right") && KeyListener.pressedRightKey) {
+//			pos_X += 100;
+//			pos_Y -= 60;
+//			state = fireRightJump;
+//		}	
+//		else if (direction.equals("left") && !KeyListener.pressedLeftKey) {
+//			pos_Y -= 60;
+//			state = waterLeftJump;
+//		}
+//		else if (direction.equals("right")) {
+//			pos_Y -= 60;
+//			state = waterRightJump;
+//		}
 	}
 	
-	public void descend() { //캐릭터 멈춤 부분
+	public void down() { //캐릭터 다운
 		
-		if (direction.equals("left") && KeyListener.pressedLeftKey) {
-			pos_X -= 100;
-			pos_Y += 60;
-			state = fireLeftMove2;
-		}
-		else if (direction.equals("right") && KeyListener.pressedRightKey) {
-			pos_X += 100;
-			pos_Y += 60;
-			state = fireRightMove2;
-		}	
-		else if (direction.equals("left") && !KeyListener.pressedLeftKey) {
-			pos_Y += 60;
-			state = fireLeftMove2;
-		}
-		else if (direction.equals("right")) {
-			pos_Y += 60;
-			state = fireRightMove2;
-		}
+		down = true;
+		new Thread(()->{
+			for(int i =0; i<60/JUMPSPEED; i++) {
+				pos_Y+=JUMPSPEED;
+				try {
+					Thread.sleep(5);
+				}catch(InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			down=false;
+		}).start();
+		
+		
+//		if (direction.equals("left") && KeyListener.pressedLeftKey) {
+//			pos_X -= 100;
+//			pos_Y += 60;
+//			state = fireLeftMove2;
+//		}
+//		else if (direction.equals("right") && KeyListener.pressedRightKey) {
+//			pos_X += 100;
+//			pos_Y += 60;
+//			state = fireRightMove2;
+//		}	
+//		else if (direction.equals("left") && !KeyListener.pressedLeftKey) {
+//			pos_Y += 60;
+//			state = fireLeftMove2;
+//		}
+//		else if (direction.equals("right")) {
+//			pos_Y += 60;
+//			state = fireRightMove2;
+//		}
 	}
 	
 	public void keyRelease() {
@@ -216,12 +248,12 @@ public class CharMove {
 			state = fireRightMove2;
 	}
 	
-	public void checkLaddering() {
-		if (300 <= getPos_X() && getPos_X() <= 360)
-			crash = true;
-		else
-			crash = false;
-	}
+//	public void checkLaddering() {
+//		if (300 <= getPos_X() && getPos_X() <= 360)
+//			crash = true;
+//		else
+//			crash = false;
+//	}
 	
 //	public void dropAlfy() {
 //		if (528 <= getPos_X() && getPos_X()+64 <= 854 && 500 <= getPos_Y() + 120 
