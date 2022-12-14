@@ -4,53 +4,118 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
+
+
 public class Block extends Thread{
 	private Image block = new ImageIcon(Main.class.getResource("../images/blockP.png")).getImage();
 
 	
-	private int block_x=20, block_y=390;
+	private int x=20, y=390;
 	private int max=470, min=390;
 	
 	public int getX() {
-		return block_x;
+		return x;
 	}
 	public int getY() {
-		return block_y;
+		return y;
+	}
+	public Image getimage() {
+		return block;
 	}
 	//사진 가져오기
 	public Image getblock() {
 		return block;
 	}
-
-	public boolean push =false; //버튼 눌림 감지
-		public Block() {
-			
-		}
-		@Override
-		public void run() {
-			while(true) {
-				if(push==true) {
-					if(block_y<max)
-						block_y+=10;
-					
-					try {
-						Thread.sleep(20);
-					} catch (Exception e) {
-					
-					}
-				}
-				
-				else if(push==false){
-					if(block_y>=min)
-						block_y-=10;
-				
-					try {
-						Thread.sleep(20);
-					} catch(Exception e) {
-					
-					}
-				}
+	
+	
+	private boolean push =true; //버튼 눌림 감지
+	
+	@Override
+	public void run() {
+		while(true) {
+			if(push == false) {
+				x+=20;
+				push = true;
+			}
+			else {
+				x-=20;
+				push = false;
+			}
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
 			}
 		}
-	
+	}
+//	
+//	public void pushing() {
+//		if(push==true)
+//			push=false;
+//		else
+//			push=true;
+//		
+//	}
+//		public Block() {
+//			
+//		}
+//		@Override
+//		public void run() {
+//			while(true) {
+//				if(push) {
+//					if(y<max)
+//						y+=10;
+//					
+//					try {
+//						Thread.sleep(20);
+//					} catch (Exception e) {
+//					
+//					}
+//				}
+//				
+//				else{
+//					if(y>=min)
+//						y-=10;
+//				
+//					try {
+//						Thread.sleep(20);
+//					} catch(Exception e) {
+//					
+//					}
+//				}
+//			}
+//		}
+//}
+
+//private String direction = "right";
+//		@Override
+//		public void run() {
+//			
+//				if (direction.equals("left")) {
+//					y -= 10;
+//					
+//					if (x <= min)
+//						direction = "right";
+//					
+//					try {
+//						Thread.sleep(20);
+//					} catch (Exception e) {
+//						
+//					}
+//				}
+//				
+//				else if (direction.equals("right")) {
+//					x += 10;
+//					
+//					if (x >= max)
+//						direction = "left";
+//					
+//					try {
+//						Thread.sleep(20);
+//					} catch (Exception e) {
+//						
+//					}
+//				}
+//			}
+//		}
 }

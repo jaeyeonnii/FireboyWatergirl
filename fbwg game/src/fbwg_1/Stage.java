@@ -16,8 +16,10 @@ public class Stage extends Thread{
 	private ArrayList<Water> waterList = new ArrayList<>();
 	private ArrayList<Bog> bogList = new ArrayList<>();
 	
+	//블록
 	private Image bt1 = new ImageIcon(Main.class.getResource("../images/buttonP.png")).getImage();
 	private Image bt2 = new ImageIcon(Main.class.getResource("../images/buttonP.png")).getImage();
+//	private ArrayList<Block> blockList = new ArrayList<>();
 	private Block block = new Block();
 	
 	public ArrayList<Water> getWaterList(){
@@ -29,6 +31,9 @@ public class Stage extends Thread{
 	public ArrayList<Bog> getBogList(){
 		return bogList;
 	}
+//	public ArrayList<Block> getBlockList(){
+//		return blockList;
+//	}
 	
 	public ArrayList<FWItem> getItemList(){
 		return itemList;
@@ -47,6 +52,10 @@ public class Stage extends Thread{
 		bogList.add(bog);
 	}
 	
+//	public void makeBlock(Block block) {
+//		blockList.add(block);
+//	}
+//	
 	public void drawItems(Graphics g) {
 		for (int i=0; i< itemList.size(); i++) {
 			if(itemList.get(i) instanceof Firetem) {
@@ -104,15 +113,27 @@ public class Stage extends Thread{
 	public void drawblock(Graphics g) {
 		g.drawImage(bt1,200,500,null);
 		g.drawImage(bt2,300,370,null);
-		g.drawImage(block.getblock(),block.getX(),block.getY(),null);
+//		for(int i= 0; i< blockList.size();i++)
+//		{
+//			g.drawImage(blockList.get(i).getimage(),blockList.get(i).getX(),blockList.get(i).getY(),null);
+//		}
+		g.drawImage(block.getimage(), block.getX(), block.getY(), null);
 	}
-	public void touchBt() {
-		if(
-				Level1.watergirl.getPos_X()+30>200&&Level1.watergirl.getPos_X()+30<220
-				&&Level1.watergirl.getPos_Y()>400&&Level1.watergirl.getPos_Y()<430) {
-			block.push=true;
-		}
-	}
+//	public void touchBt() {
+//		for(int i= 0; i< bogList.size();i++)
+//		{
+//			if(
+//		
+//				Level1.watergirl.getPos_X()+30>200&&Level1.watergirl.getPos_X()+30<220
+//				&&Level1.watergirl.getPos_Y()>400&&Level1.watergirl.getPos_Y()<430) 
+//			{
+//			blockList.get(i).pushing();
+//			}
+//			else
+//				blockList.get(i).pushing();
+//		}
+//		
+//	}
 	public void touchFire() {
 		for (int i=fireList.size()-1; i >= 0; i--) {
 			if ( // 몬스터의 왼쪽에서 접근할 때
@@ -142,9 +163,7 @@ public class Stage extends Thread{
 				}
 			}
 		}
-	public void touchButton() {
-		
-	}
+
 		@Override
 		public void run() {
 			makeItems(new Watertem(685,665));
@@ -156,7 +175,7 @@ public class Stage extends Thread{
 			while (itemList.size()>0) { //아이템 먹기
 				eatItems();
 				touchFire();
-				Level1.watergirl.checkLaddering();
+//				Level1.watergirl.checkLaddering();
 			}
 		}
 	
