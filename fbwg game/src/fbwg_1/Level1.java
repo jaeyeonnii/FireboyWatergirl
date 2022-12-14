@@ -89,11 +89,13 @@ public class Level1 extends JFrame {
 		stage.getWaterList().clear();
 		stage.getBogList().clear();
 		stage.getItemList().clear();
+		stage.getBlockList().clear();
 		
 		stage = new Stage();
 		f1 = new Fire(450,720);
 		w1 = new Water(650,720);
 		b1 = new Bog(590,565);
+		bl= new Block();
 		//¿Ã¿Áø¨
 		watergirl.setPosition(165, 425);
 		watergirl.setDirection("right");
@@ -107,5 +109,6 @@ public class Level1 extends JFrame {
 		f1.start();
 		w1.start();
 		b1.start();
+		bl.start();
 	}
 }

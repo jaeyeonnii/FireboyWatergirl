@@ -20,7 +20,8 @@ public class Stage extends Thread{
 	private Image bt1 = new ImageIcon(Main.class.getResource("../images/buttonP.png")).getImage();
 	private Image bt2 = new ImageIcon(Main.class.getResource("../images/buttonP.png")).getImage();
 	private ArrayList<Block> blockList = new ArrayList<>();
-//	private Block block = new Block();
+
+	private Image gameover = new ImageIcon(Main.class.getResource("../images/gameover.png")).getImage();
 	
 	public ArrayList<Water> getWaterList(){
 		return waterList;
@@ -145,7 +146,7 @@ public class Stage extends Thread{
 		}
 		
 	}
-	//워터걸 용암 빠질 때
+	//워터걸 용암 빠질 때 //좌표 수정해야함
 	public void touchFire() { 
 		for (int i=fireList.size()-1; i >= 0; i--) {
 			if ( // 몬스터의 왼쪽에서 접근할 때
@@ -175,6 +176,36 @@ public class Stage extends Thread{
 				}
 			}
 		}
+	//파이어보이 물 빠질 때 //좌표수정해야함
+		public void touchWater() { 
+			for (int i=waterList.size()-1; i >= 0; i--) {
+				if ( // 몬스터의 왼쪽에서 접근할 때
+					waterList.get(i).getX() <= Level1.fireboy.getPos_X()+50 
+						&& Level1.fireboy.getPos_X()+64 <= waterList.get(i).getX()+45
+						&& Level1.fireboy.getPos_Y()+128 >= waterList.get(i).getY() 
+						&& Level1.fireboy.getPos_Y() <= waterList.get(i).getY()
+					// 몬스터의 오른쪽에서 접근할 때
+					|| Level1.fireboy.getPos_X() <= waterList.get(i).getX() + 45 
+						&& Level1.fireboy.getPos_X() >= waterList.get(i).getX()
+						&& Level1.fireboy.getPos_Y()+128 >= waterList.get(i).getY() 
+						&& Level1.fireboy.getPos_Y() <= waterList.get(i).getY()) 
+				{
+						//new Music("died.mp3", false).start(); //죽을때 소리
+						
+//						for (int j=0; j < fireList.size(); j++) {
+//							fireList.get(j).close();
+//						}
+						
+						try {
+							Thread.sleep(2000);
+						} catch (Exception e) {}
+						
+//						close();
+						Main.bal.restartStage();
+						
+					}
+				}
+			}
 
 		@Override
 		public void run() {
@@ -188,6 +219,7 @@ public class Stage extends Thread{
 			while (itemList.size()>0) { //아이템 먹기
 				eatItems();
 				touchFire();
+				touchWater();
 				touchBt();
 //				Level1.watergirl.checkLaddering();
 			}
