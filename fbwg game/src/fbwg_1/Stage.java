@@ -106,6 +106,7 @@ public class Stage extends Thread{
 //					점수카운팅
 					new Music("Diamond.mp3",false).start();
 					itemList.remove(i);
+					System.out.println(i);
 				}
 		}
 	}
@@ -152,7 +153,7 @@ public class Stage extends Thread{
 				&&Level1.fireboy.getPos_Y()>300 && Level1.fireboy.getPos_Y()<311))
 			{
 			blockList.get(i).pushing();
-			
+			System.out.println(i);
 			}
 			else
 				blockList.get(i).out();
@@ -161,9 +162,11 @@ public class Stage extends Thread{
 	}
 	public void touchDoorF() {
 		for(int i=fdList.size()-1;i>=0;i--) {
-			if(true)
+			if(Level1.fireboy.getPos_X()+20>=fdList.get(i).getX()
+					&&Level1.fireboy.getPos_X()-10<fdList.get(i).getX()
+					&&Level1.fireboy.getPos_Y()<=fdList.get(i).getY())
 			{
-				System.out.println("hi");
+				System.out.println("door");
 				fdList.get(i).comming();
 			}
 		}
@@ -255,15 +258,24 @@ public class Stage extends Thread{
 			fdList.add(Level1.firedoor);
 			wdList.add(Level1.waterdoor);
 			
-			
-			while (itemList.size()>0) { //아이템 먹기
+			while //(itemList.size()>0)
+			(true){ //아이템 먹기
 				eatItems();
-				touchFire();
-				touchWater();
-				touchBt();
 				touchDoorF();
+				touchBt();
+				touchWater();
+				touchFire();
 //				Level1.watergirl.checkLaddering();
 			}
+//			while (fireList.size()>0) {
+//				touchFire();
+//			}
+//			while(waterList.size()>0) {
+//				touchWater();
+//			}
+//			while(blockList.size()>0) {
+//				touchBt();
+//			}
 		}
 	
 }

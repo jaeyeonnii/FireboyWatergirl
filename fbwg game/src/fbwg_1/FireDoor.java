@@ -28,6 +28,7 @@ public class FireDoor extends Thread {
 	
 	public void comming() {
 		come = true;
+//		System.out.println("hi");
 	}
 		public FireDoor() {
 			
@@ -36,6 +37,7 @@ public class FireDoor extends Thread {
 		public void run() {
 			while(true) {
 				if(come) {
+					System.out.println("hi");
 					if(nowImage!=fireDoor3) {
 						new Music("Door.mp3", false).start();
 						for(int i=0;i<3;i++) {
