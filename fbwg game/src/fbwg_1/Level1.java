@@ -56,11 +56,11 @@ public class Level1 extends JFrame {
 		addKeyListener(new KeyListener());
 		
 		//캐릭터 초기 설정
-		watergirl.setPosition(100, 435);
+		watergirl.setPosition(100, 540);
 		watergirl.setDirection("right");
 		watergirl.setState(watergirl.getwaterRightMove());
 		
-		fireboy.setPosition(30, 75);
+		fireboy.setPosition(30, 640);
 		fireboy.setDirection("right");
 		fireboy.setState(fireboy.getfireRightMove());
 		
@@ -69,13 +69,12 @@ public class Level1 extends JFrame {
 		w1.start();
 		b1.start();
 		bl.start();
-		//firedoor.start();
-		//waterdoor.start();
+		firedoor.start();
+		waterdoor.start();
 	
 		playMusic.start();
 		
-		//문움직이기
-		touchdoorF();
+
 	}
 	public void paint(Graphics g) {
 		screenImage = createImage(Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);
@@ -138,14 +137,6 @@ public class Level1 extends JFrame {
 		firedoor.start();
 		waterdoor.start();
 	}
-	//문도착
-	public void touchdoorF() {
-		if(firedoor.getX()-5 <= Level1.fireboy.getPos_X() //
-				&& Level1.fireboy.getPos_X() <= firedoor.getX()+10 //
-//				&& Level1.fireboy.getPos_Y() == firedoor.getY()
-				) {
-			firedoor.comming();
-		}
-	}
+
 	
 }

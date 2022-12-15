@@ -21,6 +21,10 @@ public class Stage extends Thread{
 	private Image bt2 = new ImageIcon(Main.class.getResource("../images/buttonP.png")).getImage();
 	private ArrayList<Block> blockList = new ArrayList<>();
 	
+	//문 생성
+	private static FireDoor firedoor = new FireDoor();
+	private static WaterDoor waterdoor = new WaterDoor();
+	
 	//게임 상태 창 //만짐
 	private static Gameover gameover = new Gameover(50, 150);
 	
@@ -210,6 +214,18 @@ public class Stage extends Thread{
 					}
 				}
 			}
+		//문도착
+		public void touchdoorF() {
+			if(
+					100 <= Level1.fireboy.getPos_X() //
+					&& Level1.fireboy.getPos_X() <= 300 //
+////					&& Level1.fireboy.getPos_Y() == firedoor.getY()
+					) {
+				firedoor.comming();
+			}
+			else
+				System.out.println(Level1.fireboy.getPos_X());
+		}
 
 		@Override
 		public void run() {
@@ -221,11 +237,15 @@ public class Stage extends Thread{
 			bogList.add(Level1.b1);
 			blockList.add(Level1.bl);
 			
+			//문움직이기
+			touchdoorF();
+			
 			while (itemList.size()>0) { //아이템 먹기
 				eatItems();
 				touchFire();
 				touchWater();
 				touchBt();
+				
 //				Level1.watergirl.checkLaddering();
 			}
 		}
