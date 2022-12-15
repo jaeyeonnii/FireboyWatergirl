@@ -20,7 +20,9 @@ public class Stage extends Thread{
 	private Image bt1 = new ImageIcon(Main.class.getResource("../images/buttonP.png")).getImage();
 	private Image bt2 = new ImageIcon(Main.class.getResource("../images/buttonP.png")).getImage();
 	private ArrayList<Block> blockList = new ArrayList<>();
-
+	
+	//°ÔÀÓ »óÅÂ Ã¢ //¸¸Áü
+	private static Gameover gameover = new Gameover(50, 150);
 	
 	public ArrayList<Water> getWaterList(){
 		return waterList;
@@ -107,9 +109,11 @@ public class Stage extends Thread{
 			g.drawImage(bogList.get(i).getNowState(),bogList.get(i).getX(),bogList.get(i).getY(),null);
 		}
 	}
-//	public void drawAgain(Graphics g) {
-//		g.drawImage(gameover.getImage(), gameover.getPos_x(), gameover.getPos_y(), null);
-//	}
+	
+	//¸¸Áü
+	public void drawAgain(Graphics g) {
+		g.drawImage(gameover.getImage(), gameover.getPos_x(), gameover.getPos_y(), null);
+	}
 	public void drawblock(Graphics g) {
 		g.drawImage(bt1,200,500,null);
 		g.drawImage(bt2,300,370,null);
