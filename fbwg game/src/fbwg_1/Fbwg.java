@@ -116,6 +116,7 @@ public class Fbwg  extends JFrame{
 	        //클릭 시 이벤트 처리
 	    	page1.setVisible(false);//창이 보이게
 			page2.setVisible(true);//창이 보이게
+			new Music("Char Toggle1.mp3", false).start();
 	     }
 	  });
    }
@@ -127,6 +128,7 @@ public class Fbwg  extends JFrame{
 		        //클릭 시 이벤트 처리
 		    	page1.setVisible(true);//창이 보이게
 				page2.setVisible(false);//창이 보이게
+				new Music("Char Toggle1.mp3", false).start();
 		     }
 		  });
    }
