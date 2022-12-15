@@ -21,7 +21,6 @@ public class Stage extends Thread{
 	private Image bt2 = new ImageIcon(Main.class.getResource("../images/buttonP.png")).getImage();
 	private ArrayList<Block> blockList = new ArrayList<>();
 
-//	private Gameover gameover= new Gameover();
 	
 	public ArrayList<Water> getWaterList(){
 		return waterList;
@@ -114,16 +113,11 @@ public class Stage extends Thread{
 	public void drawblock(Graphics g) {
 		g.drawImage(bt1,200,500,null);
 		g.drawImage(bt2,300,370,null);
-////		for(int i= 0; i< blockList.size();i++)
-////		{
-////			g.drawImage(blockList.get(i).getimage(),blockList.get(i).getX(),blockList.get(i).getY(),null);
-////		}
-//		g.drawImage(block.getimage(), block.getX(), block.getY(), null);
 		for(int i= 0; i< blockList.size();i++) {
 			g.drawImage(blockList.get(i).getimage(),blockList.get(i).getX(),blockList.get(i).getY(),null);
 		}
 	}
-	public void touchBt() { //좌표 손봐야함
+	public void touchBt() { //좌표끝
 		for(int i=blockList.size()-1; i >= 0; i--)
 		{
 			
@@ -145,6 +139,10 @@ public class Stage extends Thread{
 		}
 		
 	}
+//	public void drawDoor(Graphics g) {
+//		g.drawImage(firedoor.getimage(), 100, 100, null);
+//	}
+	
 	//워터걸 용암 빠질 때 또는 늪 //좌표 끝 완료
 	public void touchFire() { 
 		

@@ -30,25 +30,6 @@ public class Block extends Thread{
 	
 	private boolean push =false; //버튼 눌림 감지
 	
-//	@Override
-//	public void run() {
-//		while(true) {
-//			if(push == false) {
-//				x+=20;
-//				push = true;
-//			}
-//			else {
-//				x-=20;
-//				push = false;
-//			}
-//			try {
-//				Thread.sleep(100);
-//			} catch (InterruptedException e) {
-//				e.printStackTrace();
-//			}
-//		}
-//	}
-	
 	public void pushing() {
 		push=true;
 	}
