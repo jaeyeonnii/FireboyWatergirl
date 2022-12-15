@@ -48,7 +48,7 @@ public class Level1 extends JFrame {
 		addKeyListener(new KeyListener());
 		
 		//캐릭터 초기 설정
-		watergirl.setPosition(30, 635);
+		watergirl.setPosition(30, 630);
 		watergirl.setDirection("right");
 		watergirl.setState(watergirl.getwaterRightMove());
 		
@@ -105,7 +105,7 @@ public class Level1 extends JFrame {
 		b1 = new Bog(590,565);
 		bl= new Block();
 		//이재연
-		watergirl.setPosition(30, 635);
+		watergirl.setPosition(30, 630);
 		watergirl.setDirection("right");
 		watergirl.setState(watergirl.getwaterRightMove());
 		

@@ -228,7 +228,7 @@ public class CharMove {
 			for(int i =0; i<60/JUMPSPEED; i++) {
 				pos_Y-=JUMPSPEED;
 				try {
-					Thread.sleep(15);
+					Thread.sleep(17);
 				}catch(InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -266,7 +266,7 @@ public class CharMove {
 				
 				pos_Y+=JUMPSPEED;
 				try {
-					Thread.sleep(15);
+					Thread.sleep(17);
 				}catch(InterruptedException e) {
 					e.printStackTrace();
 				}
