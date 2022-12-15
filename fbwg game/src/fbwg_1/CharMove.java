@@ -1,6 +1,7 @@
 package fbwg_1;
 
 import java.awt.Graphics;
+
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
@@ -25,7 +26,7 @@ public class CharMove {
     private boolean up;
     private boolean down;
     private final int SPEED = 10;
-    private final int JUMPSPEED = 2;
+    private final int JUMPSPEED = 3;
     int i =0;
     
     
@@ -96,12 +97,24 @@ public class CharMove {
 		return waterRightMove1;
 	}
 	
+	
+	public void map() {
+		if(pos_Y==540&&pos_X>=290) {
+			down2();
+		}else if(pos_Y>=540&&pos_Y<=640&&pos_X>=830) right =false;
+		else if(pos_Y==560&&pos_X>=860&&pos_X<=910) {
+			pos_Y=560;
+			right= false;
+		}
+	}
 
 	public void moveFireRight() {
 		right = true;
 		
 		new Thread(()->{
-			while(right) {
+			while(pos_X<910&&right) {
+				map();
+				
 				if (direction.equals("Fleft")) {
 					direction = "Fright";
 				}
@@ -131,7 +144,8 @@ public class CharMove {
 	public void moveFireLeft() {
 		left = true;
 		new Thread(()->{
-			while(left) {
+			while(pos_X>10&left) {
+				map();
 				if (direction.equals("Fright")) {
 					direction = "Fleft";
 				}
@@ -156,9 +170,10 @@ public class CharMove {
 	}
 	public void moveWaterRight() {
 		right = true;
-		
 		new Thread(()->{
-			while(right) {
+			
+			while(pos_X<910&&right) {
+				map();
 				if (direction.equals("Wleft")) {
 					direction = "Wright";
 				}
@@ -188,7 +203,8 @@ public class CharMove {
 	public void moveWaterLeft() {
 		left = true;
 		new Thread(()->{
-			while(left) {
+			while(pos_X>10&&left) {
+				map();
 				if (direction.equals("Wright")) {
 					direction = "Wleft";
 				}
@@ -212,23 +228,23 @@ public class CharMove {
 		
 	}
 	
-	public void upper() {
-		if (pos_Y > 116)  //보류!!!!!!!
-			pos_Y -= 55;
-	}
-	
-	public void lower() {
-		if (pos_Y <= 422)
-			pos_Y += 55;
-	}
+//	public void upper() {
+//		if (pos_Y > 116)  //보류!!!!!!!
+//			pos_Y -= 55;
+//	}
+//	
+//	public void lower() {
+//		if (pos_Y <= 422)
+//			pos_Y += 55;
+//	}
 	
 	public void up() {
 		up = true;
 		new Thread(()->{
-			for(int i =0; i<60/JUMPSPEED; i++) {
+			for(int i =0; i<90/JUMPSPEED; i++) {
 				pos_Y-=JUMPSPEED;
 				try {
-					Thread.sleep(17);
+					Thread.sleep(18);
 				}catch(InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -262,7 +278,24 @@ public class CharMove {
 		
 		down = true;
 		new Thread(()->{
-			for(int i =0; i<60/JUMPSPEED; i++) {
+			for(int i =0; i<90/JUMPSPEED; i++) {
+				
+				pos_Y+=JUMPSPEED;
+				try {
+					Thread.sleep(18);
+				}catch(InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			down=false;
+		}).start();
+		
+	}	
+	public void down2() { //캐릭터 다운
+			
+		down = true;
+		new Thread(()->{
+			for(int i =0; i<100/JUMPSPEED; i++) {
 				
 				pos_Y+=JUMPSPEED;
 				try {
@@ -274,7 +307,8 @@ public class CharMove {
 			down=false;
 		}).start();
 		
-		
+	}	
+			
 //		if (direction.equals("left") && KeyListener.pressedLeftKey) {
 //			pos_X -= 100;
 //			pos_Y += 60;
@@ -293,7 +327,7 @@ public class CharMove {
 //			pos_Y += 60;
 //			state = fireRightMove2;
 //		}
-	}
+	
 	
 	public void keyRelease() {
 		if (direction.equals("Fleft"))
