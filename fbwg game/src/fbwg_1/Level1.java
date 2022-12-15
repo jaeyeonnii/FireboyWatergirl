@@ -20,7 +20,7 @@ public class Level1 extends JFrame {
 	private Image background = new ImageIcon(Main.class.getResource("../images/level1back.png")).getImage();
 	
 	//사용할 음악
-	public Music playMusic = new Music("Level Music.mp3", true);
+	//public Music playMusic = new Music("Level Music.mp3", true);
 	
 	//스테이지 생성
 	public static Stage stage = new Stage();
@@ -62,7 +62,7 @@ public class Level1 extends JFrame {
 		b1.start();
 		bl.start();
 		
-		playMusic.start();
+		//playMusic.start();
 	}
 	public void paint(Graphics g) {
 		screenImage = createImage(Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);
