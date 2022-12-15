@@ -166,11 +166,23 @@ public class Stage extends Thread{
 					&&Level1.fireboy.getPos_X()-10<fdList.get(i).getX()
 					&&Level1.fireboy.getPos_Y()<=fdList.get(i).getY())
 			{
-				System.out.println("door");
+				System.out.println("fdoor");
 				fdList.get(i).comming();
 			}
 		}
 	}
+	public void touchDoorW() {
+		for(int i=wdList.size()-1;i>=0;i--) {
+			if(Level1.watergirl.getPos_X()+20>=wdList.get(i).getX()
+					&&Level1.watergirl.getPos_X()-10<wdList.get(i).getX()
+					&&Level1.watergirl.getPos_Y()<=wdList.get(i).getY())
+			{
+				System.out.println("wdoor");
+				wdList.get(i).comming();
+			}
+		}
+	}
+	
 	//문그리기
 	public void drawDoor(Graphics g) {
 		for(int i= 0; i< fdList.size();i++) {
@@ -265,6 +277,7 @@ public class Stage extends Thread{
 				touchBt();
 				touchWater();
 				touchFire();
+				touchDoorW();
 //				Level1.watergirl.checkLaddering();
 			}
 //			while (fireList.size()>0) {

@@ -24,7 +24,7 @@ public class WaterDoor extends Thread {
 	}
 	
 	
-	private boolean come = false; //캐릭터 감지
+	public boolean come = false; //캐릭터 감지
 	
 	public void comming() {
 		come=true;
@@ -35,25 +35,24 @@ public class WaterDoor extends Thread {
 		@Override
 		public void run() {
 			while(true) {
-				if(come) {
-					if(nowImage!=waterDoor3) {
-						new Music("Door.mp3", false).start();
-						for(int i=0;i<3;i++) {
-							if(i==1)
-								nowImage=waterDoor2;
-							else if(i==2) {
-								nowImage=waterDoor3;
-								come = false;
-							}
-							try {
-								Thread.sleep(500);
-							} catch(Exception e) {
-							
-							}
+				
+				if(nowImage!=waterDoor3) {
+					new Music("Door.mp3", false).start();
+					for(int i=0;i<3;i++) {
+						if(i==1)
+							nowImage=waterDoor2;
+						else if(i==2) {
+							nowImage=waterDoor3;
+							come = false;
+						}
+						try {
+							Thread.sleep(500);
+						} catch(Exception e) {
+						
 						}
 					}
-					
 				}
-			}
+				
+		}
 		}
 }

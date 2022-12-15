@@ -24,7 +24,7 @@ public class FireDoor extends Thread {
 	}
 	
 	
-	private boolean come = false; //캐릭터 감지
+	public boolean come = false; //캐릭터 감지
 	
 	public void comming() {
 		come = true;
@@ -36,8 +36,7 @@ public class FireDoor extends Thread {
 		@Override
 		public void run() {
 			while(true) {
-				if(come) {
-					System.out.println("hi");
+		
 					if(nowImage!=fireDoor3) {
 						new Music("Door.mp3", false).start();
 						for(int i=0;i<3;i++) {
@@ -55,7 +54,6 @@ public class FireDoor extends Thread {
 						}
 					}
 					
-				}
 			}
 		}
 }

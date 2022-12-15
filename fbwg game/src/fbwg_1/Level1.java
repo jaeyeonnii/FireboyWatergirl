@@ -18,7 +18,7 @@ public class Level1 extends JFrame {
 	
 	//사용할 이미지
 	private Image background = new ImageIcon(Main.class.getResource("../images/level1back.png")).getImage();
-	
+	private Image gameclear = new ImageIcon(Main.class.getResource("../images/gameclear.png")).getImage();
 	//사용할 음악
 	public Music playMusic = new Music("Level Music.mp3", true);
 	
@@ -43,6 +43,7 @@ public class Level1 extends JFrame {
 	//블록 생성
 	public static Block bl = new Block();
 	
+	public static boolean check= true;
 	public Level1() { //생성자
 		setTitle("Fireboy and Watergirl");
 		setSize(Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   );
@@ -56,11 +57,11 @@ public class Level1 extends JFrame {
 		addKeyListener(new KeyListener());
 		
 		//캐릭터 초기 설정
-		watergirl.setPosition(30, 540);
+		watergirl.setPosition(30, 75);
 		watergirl.setDirection("right");
 		watergirl.setState(watergirl.getwaterRightMove());
 		
-		fireboy.setPosition(30, 640);
+		fireboy.setPosition(30, 75);
 		fireboy.setDirection("right");
 		fireboy.setState(fireboy.getfireRightMove());
 		
@@ -101,8 +102,15 @@ public class Level1 extends JFrame {
 		stage.drawFire(g);
 		stage.drawWater(g);
 		stage.drawBog(g);
-
-//		stage.drawAgain(g);
+		
+		if(firedoor.come==true&&waterdoor.come==true) {
+			g.drawImage(gameclear, 50, 100, null);
+			playMusic.close();
+			if(check) {
+				new Music("Level Music Finish.mp3", false).start();
+				check=false;
+			}
+		}
 		
 		//페인트 함수로 돌아감
 		this.repaint();
@@ -122,6 +130,9 @@ public class Level1 extends JFrame {
 		w1 = new Water(650,720);
 		b1 = new Bog(590,565);
 		bl= new Block();
+		firedoor = new FireDoor();
+		waterdoor = new WaterDoor();
+		
 		watergirl.setPosition(30, 540);
 		watergirl.setDirection("right");
 		watergirl.setState(watergirl.getwaterRightMove());
