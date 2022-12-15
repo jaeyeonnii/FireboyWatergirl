@@ -19,6 +19,8 @@ public class Level1 extends JFrame {
 	//사용할 이미지
 	private Image background = new ImageIcon(Main.class.getResource("../images/level1back.png")).getImage();
 	private Image gameclear = new ImageIcon(Main.class.getResource("../images/gameclear.png")).getImage();
+	private Image rock = new ImageIcon(Main.class.getResource("../images/rock.png")).getImage();
+
 	//사용할 음악
 	public Music playMusic = new Music("Level Music.mp3", true);
 	
@@ -90,8 +92,9 @@ public class Level1 extends JFrame {
 		
 		//템 오프스크린에 그림
 		stage.drawItems(g);
-		
 		stage.drawblock(g);
+		g.drawImage(rock, 150, 250, null);
+		g.drawImage(rock, 940, 380, null);
 //		문 그리기
 		stage.drawDoor(g);
 		
