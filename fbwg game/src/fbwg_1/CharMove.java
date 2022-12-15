@@ -101,18 +101,16 @@ public class CharMove {
 	public void map() {
 		if(pos_Y==540&&pos_X>=290) {
 			down2();
-		}else if(pos_Y>=540&&pos_Y<=640&&pos_X>=830) right =false;
-		else if(pos_Y==560&&pos_X>=860&&pos_X<=910) {
-			pos_Y=560;
-			right= false;
 		}
+		
+		
 	}
 
 	public void moveFireRight() {
 		right = true;
 		
 		new Thread(()->{
-			while(pos_X<910&&right) {
+			while(pos_X<910&&right) {//!(pos_Y>=540&&pos_Y<=640&&pos_X>=830)
 				map();
 				
 				if (direction.equals("Fleft")) {
@@ -172,7 +170,7 @@ public class CharMove {
 		right = true;
 		new Thread(()->{
 			
-			while(pos_X<910&&right) {
+			while(pos_X<910&&right) {//!(pos_Y>=580&&pos_Y<=640&&pos_X>=830)
 				map();
 				if (direction.equals("Wleft")) {
 					direction = "Wright";
@@ -241,7 +239,7 @@ public class CharMove {
 	public void up() {
 		up = true;
 		new Thread(()->{
-			for(int i =0; i<90/JUMPSPEED; i++) {
+			for(int i =0; i<80/JUMPSPEED; i++) {
 				pos_Y-=JUMPSPEED;
 				try {
 					Thread.sleep(18);
@@ -253,7 +251,21 @@ public class CharMove {
 			down();
 			
 		}).start();
-		
+	}
+	public void up2() {
+		up = true;
+		new Thread(()->{
+			for(int i =0; i<80/JUMPSPEED; i++) {
+				try {
+					Thread.sleep(18);
+				}catch(InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			up = false;
+			
+		}).start();
+	}	
 //		if (direction.equals("left") && KeyListener.pressedLeftKey) {
 //			pos_X -= 100;
 //			pos_Y -= 60;
@@ -272,15 +284,16 @@ public class CharMove {
 //			pos_Y -= 60;
 //			state = waterRightJump;
 //		}
-	}
+	
 	
 	public void down() { //캐릭터 다운
 		
 		down = true;
 		new Thread(()->{
-			for(int i =0; i<90/JUMPSPEED; i++) {
+			for(int i =0; i<80/JUMPSPEED; i++) {
 				
 				pos_Y+=JUMPSPEED;
+				if(pos_X>=830&&pos_X<=910&&pos_Y<=580&&pos_Y>=560) break;
 				try {
 					Thread.sleep(18);
 				}catch(InterruptedException e) {
