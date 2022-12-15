@@ -86,14 +86,7 @@ public class Stage extends Thread{
 						&& Level1.fireboy.getPos_Y()+27 >= itemList.get(i).getPos_y() 
 						)) 
 				{
-//					if (itemList.get(i) instanceof watertem){
-//						//new Music("eatBanana.mp3", false).start();
-//						//점수 카운팅
-//					}
-//					else if (itemList.get(i) instanceof firetem) {
-//						//new Music("eatGrape.mp3", false).start();
-//						//점수 카운팅
-//					}
+//					점수카운팅
 					new Music("Diamond.mp3",false).start();
 					itemList.remove(i);
 				}
