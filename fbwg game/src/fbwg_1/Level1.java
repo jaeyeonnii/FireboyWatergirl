@@ -52,7 +52,7 @@ public class Level1 extends JFrame {
 		watergirl.setDirection("right");
 		watergirl.setState(watergirl.getwaterRightMove());
 		
-		fireboy.setPosition(30, 640);
+		fireboy.setPosition(30, 490);
 		fireboy.setDirection("right");
 		fireboy.setState(fireboy.getfireRightMove());
 		
@@ -105,11 +105,11 @@ public class Level1 extends JFrame {
 		b1 = new Bog(590,565);
 		bl= new Block();
 		//¿Ã¿Áø¨
-		watergirl.setPosition(30, 630);
+		watergirl.setPosition(30, 540);
 		watergirl.setDirection("right");
 		watergirl.setState(watergirl.getwaterRightMove());
 		
-		fireboy.setPosition(30, 535);
+		fireboy.setPosition(30, 640);
 		fireboy.setDirection("right");
 		fireboy.setState(fireboy.getfireRightMove());
 		

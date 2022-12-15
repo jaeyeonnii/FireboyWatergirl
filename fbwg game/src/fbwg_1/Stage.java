@@ -150,20 +150,20 @@ public class Stage extends Thread{
 		}
 		
 	}
-	//워터걸 용암 빠질 때 또는 늪 //좌표 수정해야함!
+	//워터걸 용암 빠질 때 또는 늪 //좌표 끝 완료
 	public void touchFire() { 
 		
 		for (int i=fireList.size()-1; i >= 0; i--) {
 			if ( (
-				fireList.get(i).getX()-30 <= Level1.watergirl.getPos_X()
-					&& Level1.watergirl.getPos_X()+50 <= fireList.get(i).getX()+150
-					&& Level1.watergirl.getPos_Y()+92 >= fireList.get(i).getY()
+				fireList.get(i).getX()-30 <= Level1.watergirl.getPos_X() //완
+					&& Level1.watergirl.getPos_X()+50 <= fireList.get(i).getX()+150 //완
+					&& Level1.watergirl.getPos_Y()+82 >= fireList.get(i).getY() //완
 					)
 				// 늪
-				|| (bogList.get(i).getX()-20 <= Level1.watergirl.getPos_X()
-					&& Level1.watergirl.getPos_X() <= bogList.get(i).getX()+130
-					&& Level1.watergirl.getPos_Y() >= bogList.get(i).getY() -110
-					&& Level1.watergirl.getPos_Y() <= bogList.get(i).getY() -90))
+				|| (bogList.get(i).getX()-30 <= Level1.watergirl.getPos_X()
+					&& Level1.watergirl.getPos_X()+50 <= bogList.get(i).getX()+150
+					&& Level1.watergirl.getPos_Y() +77>= bogList.get(i).getY()
+					&& Level1.watergirl.getPos_Y() +70<= bogList.get(i).getY()))
 			{
 					new Music("Death.mp3", false).start(); //죽을때 소리
 					
@@ -183,21 +183,21 @@ public class Stage extends Thread{
 				}
 			}
 		}
-	//파이어보이 물 빠질 때 //좌표수정해야함
+	//파이어보이 물 빠질 때 //좌표끝 완료
 		public void touchWater() { 
 			for (int i=waterList.size()-1; i >= 0; i--) {
 				if ( //물
-					waterList.get(i).getX() <= Level1.fireboy.getPos_X()+50 
-						&& Level1.fireboy.getPos_X()+64 <= waterList.get(i).getX()+45
-						&& Level1.fireboy.getPos_Y()+128 >= waterList.get(i).getY() 
-						&& Level1.fireboy.getPos_Y() <= waterList.get(i).getY()
+					(waterList.get(i).getX() <= Level1.fireboy.getPos_X()+30 //완
+						&& Level1.fireboy.getPos_X()+50 <= waterList.get(i).getX()+150 //완
+						&& Level1.fireboy.getPos_Y()+82 >= waterList.get(i).getY() //완
+						)
 					// 늪
-					|| (bogList.get(i).getX()-20 <= Level1.fireboy.getPos_X()
-							&& Level1.fireboy.getPos_X() <= bogList.get(i).getX()+130
-							&& Level1.fireboy.getPos_Y() >= bogList.get(i).getY() -110
-							&& Level1.fireboy.getPos_Y() <= bogList.get(i).getY() -90)) 
+					|| (bogList.get(i).getX()-30 <= Level1.fireboy.getPos_X() 
+							&& Level1.fireboy.getPos_X() +50 <= bogList.get(i).getX()+150
+							&& Level1.fireboy.getPos_Y()+77 >= bogList.get(i).getY()
+							&& Level1.fireboy.getPos_Y() +70<= bogList.get(i).getY())) 
 				{
-						//new Music("Death.mp3", false).start(); //죽을때 소리
+						new Music("Death.mp3", false).start(); //죽을때 소리
 						
 //						for (int j=0; j < fireList.size(); j++) {
 //							fireList.get(j).close();
