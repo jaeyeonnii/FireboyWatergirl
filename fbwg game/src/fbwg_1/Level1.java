@@ -26,8 +26,8 @@ public class Level1 extends JFrame {
 	public static Stage stage = new Stage();
 	
 	//문 생성
-	private static FireDoor firedoor = new FireDoor();
-	private static WaterDoor waterdoor = new WaterDoor();
+	public static FireDoor firedoor = new FireDoor();
+	public static WaterDoor waterdoor = new WaterDoor();
 		
 	//캐릭터 생성
 	public static CharMove watergirl = new CharMove();
@@ -60,7 +60,7 @@ public class Level1 extends JFrame {
 		watergirl.setDirection("right");
 		watergirl.setState(watergirl.getwaterRightMove());
 		
-		fireboy.setPosition(30, 640);
+		fireboy.setPosition(30, 75);
 		fireboy.setDirection("right");
 		fireboy.setState(fireboy.getfireRightMove());
 		
@@ -92,8 +92,7 @@ public class Level1 extends JFrame {
 		
 		stage.drawblock(g);
 //		문 그리기
-		g.drawImage(firedoor.getimage(), firedoor.getX(), firedoor.getY(), null);
-		g.drawImage(waterdoor.getimage(),waterdoor.getX(), waterdoor.getY(), null);
+		stage.drawDoor(g);
 		
 		//캐릭터 그리기
 		g.drawImage(watergirl.getState(), watergirl.getPos_X(), watergirl.getPos_Y(), null);

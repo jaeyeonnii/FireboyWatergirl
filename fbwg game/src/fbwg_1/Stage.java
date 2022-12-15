@@ -22,12 +22,18 @@ public class Stage extends Thread{
 	private ArrayList<Block> blockList = new ArrayList<>();
 	
 	//문 생성
-	private static FireDoor firedoor = new FireDoor();
-	private static WaterDoor waterdoor = new WaterDoor();
+	private ArrayList<FireDoor> fdList = new ArrayList<>();
+	private ArrayList<WaterDoor> wdList = new ArrayList<>();
 	
 	//게임 상태 창 //만짐
 	private static Gameover gameover = new Gameover(50, 150);
 	
+	public ArrayList<FireDoor> getfdList(){
+		return fdList;
+	}
+	public ArrayList<WaterDoor> getwdList(){
+		return wdList;
+	}
 	public ArrayList<Water> getWaterList(){
 		return waterList;
 	}
@@ -60,6 +66,12 @@ public class Stage extends Thread{
 	
 	public void makeBlock(Block block) {
 		blockList.add(block);
+	}
+	public void makeDoor(FireDoor firedoor) {
+		fdList.add(firedoor);
+	}
+	public void makeDoorr(WaterDoor waterdoor) {
+		wdList.add(waterdoor);
 	}
 	
 	public void drawItems(Graphics g) {
@@ -147,9 +159,24 @@ public class Stage extends Thread{
 		}
 		
 	}
-//	public void drawDoor(Graphics g) {
-//		g.drawImage(firedoor.getimage(), 100, 100, null);
-//	}
+	public void touchDoorF() {
+		for(int i=fdList.size()-1;i>=0;i--) {
+			if(true)
+			{
+				System.out.println("hi");
+				fdList.get(i).comming();
+			}
+		}
+	}
+	//문그리기
+	public void drawDoor(Graphics g) {
+		for(int i= 0; i< fdList.size();i++) {
+			g.drawImage(fdList.get(i).getimage(), fdList.get(i).getX(), fdList.get(i).getY(), null);
+		}
+		for(int i=0;i<wdList.size();i++) {
+			g.drawImage(wdList.get(i).getimage(),wdList.get(i).getX(),wdList.get(i).getY(), null);
+		}
+	}
 	
 	//워터걸 용암 빠질 때 또는 늪 //좌표 끝 완료
 	public void touchFire() { 
@@ -214,18 +241,7 @@ public class Stage extends Thread{
 					}
 				}
 			}
-		//문도착
-		public void touchdoorF() {
-			if(
-					100 <= Level1.fireboy.getPos_X() //
-					&& Level1.fireboy.getPos_X() <= 300 //
-////					&& Level1.fireboy.getPos_Y() == firedoor.getY()
-					) {
-				firedoor.comming();
-			}
-			else
-				System.out.println(Level1.fireboy.getPos_X());
-		}
+
 
 		@Override
 		public void run() {
@@ -236,16 +252,16 @@ public class Stage extends Thread{
 			waterList.add(Level1.w1);
 			bogList.add(Level1.b1);
 			blockList.add(Level1.bl);
+			fdList.add(Level1.firedoor);
+			wdList.add(Level1.waterdoor);
 			
-			//문움직이기
-			touchdoorF();
 			
 			while (itemList.size()>0) { //아이템 먹기
 				eatItems();
 				touchFire();
 				touchWater();
 				touchBt();
-				
+				touchDoorF();
 //				Level1.watergirl.checkLaddering();
 			}
 		}
