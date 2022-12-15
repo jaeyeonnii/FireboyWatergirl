@@ -52,7 +52,7 @@ public class Level1 extends JFrame {
 		watergirl.setDirection("right");
 		watergirl.setState(watergirl.getwaterRightMove());
 		
-		fireboy.setPosition(30, 535);
+		fireboy.setPosition(30, 640);
 		fireboy.setDirection("right");
 		fireboy.setState(fireboy.getfireRightMove());
 		
