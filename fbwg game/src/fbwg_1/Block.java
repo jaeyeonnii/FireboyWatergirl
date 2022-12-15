@@ -48,7 +48,7 @@ public class Block extends Thread{
 //			}
 //		}
 //	}
-//	
+	
 	public void pushing() {
 		push=true;
 	}
@@ -62,8 +62,12 @@ public class Block extends Thread{
 		public void run() {
 			while(true) {
 				if(push) {
-					if(y<max)
+					if(y<max) {
 						y+=2;
+					}
+					if(y == min+2) {
+						new Music("Pusher.mp3", false).start();
+					}
 					
 					try {
 						Thread.sleep(20);
@@ -75,6 +79,9 @@ public class Block extends Thread{
 				else{
 					if(y>=min)
 						y-=2;
+
+					if(y==max-2)
+						new Music("Pusher.mp3", false).start();
 				
 					try {
 						Thread.sleep(20);
@@ -83,6 +90,7 @@ public class Block extends Thread{
 					}
 				}
 			}
+			
 		}
 
 

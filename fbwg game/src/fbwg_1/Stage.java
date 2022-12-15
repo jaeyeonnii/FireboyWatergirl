@@ -126,17 +126,19 @@ public class Stage extends Thread{
 	public void touchBt() { //ÁÂÇ¥ ¼ÕºÁ¾ßÇÔ
 		for(int i=blockList.size()-1; i >= 0; i--)
 		{
-			if((
-				Level1.watergirl.getPos_X()+60>200&&Level1.watergirl.getPos_X()+30<220
-				&&Level1.watergirl.getPos_Y()>400&&Level1.watergirl.getPos_Y()<430
-				||Level1.watergirl.getPos_X()+60>300&&Level1.watergirl.getPos_X()+30<320
-				&&Level1.watergirl.getPos_Y()>270&&Level1.watergirl.getPos_Y()<300
-				) ||(Level1.fireboy.getPos_X()+40>200&&Level1.fireboy.getPos_X()+30<240
-				&&Level1.fireboy.getPos_Y()>420&&Level1.fireboy.getPos_Y()<430
-				||Level1.fireboy.getPos_X()+40>300&&Level1.fireboy.getPos_X()+30<340
-				&&Level1.fireboy.getPos_Y()>270&&Level1.fireboy.getPos_Y()<300))
+			
+			if(( //¹öÆ°1(200 500) ¹öÆ°2(300 370)
+				Level1.watergirl.getPos_X()>150 && Level1.watergirl.getPos_X()<220
+				&&Level1.watergirl.getPos_Y()>420 && Level1.watergirl.getPos_Y()<436
+				||Level1.watergirl.getPos_X()>250 && Level1.watergirl.getPos_X()<320
+				&&Level1.watergirl.getPos_Y()>300 && Level1.watergirl.getPos_Y()<311
+				) ||(Level1.fireboy.getPos_X()>150 && Level1.fireboy.getPos_X()<220
+				&&Level1.fireboy.getPos_Y()>420 && Level1.fireboy.getPos_Y()<436
+				||Level1.fireboy.getPos_X()>250 && Level1.fireboy.getPos_X()<320
+				&&Level1.fireboy.getPos_Y()>300 && Level1.fireboy.getPos_Y()<311))
 			{
 			blockList.get(i).pushing();
+			
 			}
 			else
 				blockList.get(i).out();
