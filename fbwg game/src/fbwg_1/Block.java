@@ -10,13 +10,16 @@ public class Block extends Thread{
 	private Image block = new ImageIcon(Main.class.getResource("../images/blockP.png")).getImage();
 
 	
-	private int x=20, y=390;
+	private int x=20;
+
+
+	private static int y=390;
 	private int max=470, min=390;
 	
 	public int getX() {
 		return x;
 	}
-	public int getY() {
+	public static int getY() {
 		return y;
 	}
 	public Image getimage() {
@@ -26,9 +29,11 @@ public class Block extends Thread{
 	public Image getblock() {
 		return block;
 	}
+	public static boolean getpush() {
+		return push;
+	}
 	
-	
-	private boolean push =false; //버튼 눌림 감지
+	private static boolean push =false; //버튼 눌림 감지
 	
 	public void pushing() {
 		push=true;

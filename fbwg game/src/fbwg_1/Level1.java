@@ -56,11 +56,11 @@ public class Level1 extends JFrame {
 		addKeyListener(new KeyListener());
 		
 		//캐릭터 초기 설정
-		watergirl.setPosition(100, 540);
+		watergirl.setPosition(400, 310);
 		watergirl.setDirection("right");
 		watergirl.setState(watergirl.getwaterRightMove());
 		
-		fireboy.setPosition(30, 75);
+		fireboy.setPosition(800, 490);
 		fireboy.setDirection("right");
 		fireboy.setState(fireboy.getfireRightMove());
 		

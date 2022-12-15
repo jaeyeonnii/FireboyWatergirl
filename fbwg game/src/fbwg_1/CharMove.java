@@ -102,6 +102,7 @@ public class CharMove {
 		if(pos_Y==540&&pos_X>=290) {
 			down2();
 		}
+		if(pos_Y==310&&pos_X>=498) down3();
 		
 		
 	}
@@ -285,7 +286,13 @@ public class CharMove {
 //			state = waterRightJump;
 //		}
 	
-	
+	public void block() {
+		if(Block.getpush()==true) {
+			if(pos_X<150&&pos_Y>=435-29-29&&pos_Y<=435-29-29+2) {
+				pos_Y=Block.getY();
+			}
+		}
+	}
 	public void down() { //캐릭터 다운
 		
 		down = true;
@@ -294,6 +301,13 @@ public class CharMove {
 				
 				pos_Y+=JUMPSPEED;
 				if(pos_X>=830&&pos_X<=910&&pos_Y<=580&&pos_Y>=560) break;
+				if(pos_Y>=490&&pos_Y<=492&&pos_X<830&&pos_X>390) break;
+				if(pos_Y>=432&&pos_Y<=436&&pos_X<=390&&pos_X>10) break;
+				if(pos_X<150&&pos_Y>=435-29-29&&pos_Y<=435-29-29+2) break;
+				if(pos_X<130&&pos_Y>=308&&pos_Y<=310) break;
+				if(pos_X<130&&pos_Y>=308&&pos_Y<=310) break;
+				
+				//block();
 				try {
 					Thread.sleep(18);
 				}catch(InterruptedException e) {
@@ -309,6 +323,23 @@ public class CharMove {
 		down = true;
 		new Thread(()->{
 			for(int i =0; i<100/JUMPSPEED; i++) {
+				
+				pos_Y+=JUMPSPEED;
+				try {
+					Thread.sleep(17);
+				}catch(InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			down=false;
+		}).start();
+		
+	}	
+	public void down3() { //캐릭터 다운
+		
+		down = true;
+		new Thread(()->{
+			for(int i =0; i<25/JUMPSPEED; i++) {
 				
 				pos_Y+=JUMPSPEED;
 				try {
