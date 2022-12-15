@@ -155,9 +155,9 @@ public class Stage extends Thread{
 		
 		for (int i=fireList.size()-1; i >= 0; i--) {
 			if ( (
-				fireList.get(i).getX()-20 <= Level1.watergirl.getPos_X()
-					&& Level1.watergirl.getPos_X() <= fireList.get(i).getX()+130
-					&& Level1.watergirl.getPos_Y() >= fireList.get(i).getY() -110
+				fireList.get(i).getX()-30 <= Level1.watergirl.getPos_X()
+					&& Level1.watergirl.getPos_X()+50 <= fireList.get(i).getX()+150
+					&& Level1.watergirl.getPos_Y()+92 >= fireList.get(i).getY()
 					)
 				// 此
 				|| (bogList.get(i).getX()-20 <= Level1.watergirl.getPos_X()
@@ -165,7 +165,7 @@ public class Stage extends Thread{
 					&& Level1.watergirl.getPos_Y() >= bogList.get(i).getY() -110
 					&& Level1.watergirl.getPos_Y() <= bogList.get(i).getY() -90))
 			{
-					//new Music("Death.mp3", false).start(); //磷阑锭 家府
+					new Music("Death.mp3", false).start(); //磷阑锭 家府
 					
 //					for (int j=0; j < fireList.size(); j++) {
 //						fireList.get(j).close();
