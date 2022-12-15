@@ -26,8 +26,8 @@ public class Level1 extends JFrame {
 	public static Stage stage = new Stage();
 	
 	//문 생성
-	private static FireDoor firedoor = new FireDoor();
-	private static WaterDoor waterdoor = new WaterDoor();
+	//private static FireDoor firedoor = new FireDoor();
+	//private static WaterDoor waterdoor = new WaterDoor();
 		
 	//캐릭터 생성
 	public static CharMove watergirl = new CharMove();
@@ -69,8 +69,8 @@ public class Level1 extends JFrame {
 		w1.start();
 		b1.start();
 		bl.start();
-		firedoor.start();
-		waterdoor.start();
+		//firedoor.start();
+		//waterdoor.start();
 	
 		playMusic.start();
 		
@@ -93,8 +93,8 @@ public class Level1 extends JFrame {
 		
 		stage.drawblock(g);
 		//문 그리기
-		g.drawImage(firedoor.getimage(), firedoor.getX(), firedoor.getY(), null);
-		g.drawImage(waterdoor.getimage(),waterdoor.getX(), waterdoor.getY(), null);
+		//g.drawImage(firedoor.getimage(), firedoor.getX(), firedoor.getY(), null);
+		//g.drawImage(waterdoor.getimage(),waterdoor.getX(), waterdoor.getY(), null);
 		
 		//캐릭터 그리기
 		g.drawImage(watergirl.getState(), watergirl.getPos_X(), watergirl.getPos_Y(), null);
@@ -134,15 +134,15 @@ public class Level1 extends JFrame {
 		w1.start();
 		b1.start();
 		bl.start();
-		firedoor.start();
-		waterdoor.start();
+		//firedoor.start();
+		//waterdoor.start();
 	}
 	public void touchdoorF() {
-		if(firedoor.getX()-10 <= Level1.fireboy.getPos_X() //
-				&& Level1.fireboy.getPos_X() <= firedoor.getX()+50 //
-				&& Level1.fireboy.getPos_Y() <= firedoor.getY()+5) {
-			firedoor.comming();
-		}
+		//if(firedoor.getX()-10 <= Level1.fireboy.getPos_X() //
+			//	&& Level1.fireboy.getPos_X() <= firedoor.getX()+50 //
+			//	&& Level1.fireboy.getPos_Y() <= firedoor.getY()+5) {
+		//	firedoor.comming();
+		//}
 	}
 	
 }
