@@ -75,16 +75,16 @@ public class Stage extends Thread{
 	}
 	public void eatItems() { //아이템 먹기
 		for (int i=itemList.size()-1;i>=0; i--) {
-			if ( // 아이템의 왼쪽에서 접근할 때
-					itemList.get(i).getPos_x() <= Level1.watergirl.getPos_X()+20 
-						&& Level1.watergirl.getPos_X()+64 <= itemList.get(i).getPos_x() + 56 
-						&& Level1.watergirl.getPos_Y()+50 >= itemList.get(i).getPos_y() 
-						&& Level1.watergirl.getPos_Y() <= itemList.get(i).getPos_y()
-					// 아이템의 오른쪽에서 접근할 때 
-					|| Level1.watergirl.getPos_X() <= itemList.get(i).getPos_x() + 20 
-						&& Level1.watergirl.getPos_X() >= itemList.get(i).getPos_x()
-						&& Level1.watergirl.getPos_Y()+50 >= itemList.get(i).getPos_y() 
-						&& Level1.watergirl.getPos_Y() <= itemList.get(i).getPos_y()) 
+			if ( // 워터걸
+					(itemList.get(i).getPos_x() <= Level1.watergirl.getPos_X()+30 
+						&& Level1.watergirl.getPos_X() <= itemList.get(i).getPos_x() 
+						&& Level1.watergirl.getPos_Y()+27 >= itemList.get(i).getPos_y() 
+						)
+					// 파이어 보이
+					|| (Level1.fireboy.getPos_X() <= itemList.get(i).getPos_x() + 30 
+						&& Level1.fireboy.getPos_X() >= itemList.get(i).getPos_x()
+						&& Level1.fireboy.getPos_Y()+27 >= itemList.get(i).getPos_y() 
+						)) 
 				{
 //					if (itemList.get(i) instanceof watertem){
 //						//new Music("eatBanana.mp3", false).start();
@@ -94,7 +94,7 @@ public class Stage extends Thread{
 //						//new Music("eatGrape.mp3", false).start();
 //						//점수 카운팅
 //					}
-//						
+					new Music("Diamond.mp3",false).start();
 					itemList.remove(i);
 				}
 		}
