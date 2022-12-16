@@ -95,7 +95,7 @@ public class Level1 extends JFrame {
 		stage.drawblock(g);
 		g.drawImage(rock, 150, 230, null);
 		g.drawImage(rock, 920, 360, null);
-//		문 그리기
+//		문 그리기 
 		stage.drawDoor(g);
 		
 		//캐릭터 그리기
