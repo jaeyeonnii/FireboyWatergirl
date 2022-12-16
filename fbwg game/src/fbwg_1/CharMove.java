@@ -99,10 +99,6 @@ public class CharMove {
 	
 	
 	public void map() {
-		if(pos_Y==540&&pos_X>=290&&pos_X<=300) {
-			down2();
-		}
-		if(pos_Y<=310&&pos_X>=498) down3();
 		
 		
 	}
@@ -296,20 +292,24 @@ public class CharMove {
 		down = true;
 		new Thread(()->{
 			for(int i =0; i<80/JUMPSPEED; i++) {
+				if(pos_X>=830&&pos_X<=910&&pos_Y<=580&&pos_Y>=560) break;
+				
+				if(pos_Y>=490&&pos_Y<=492&&pos_X<830&&pos_X>390) break;
+				
+				if(pos_Y>=432&&pos_Y<=436&&pos_X<=390&&pos_X>10) break;
+				
+				if(pos_X<150&&pos_Y>=435-29-29&&pos_Y<=435-29-29+2) break;
+				
+				if(pos_Y>=308&pos_Y<=310&&pos_X<=110&&pos_X>10) break;
+				
+				if(pos_Y>=328&pos_Y<=330&&pos_X<=910&&pos_X>500) break;
+				
+				if(pos_Y==75&&pos_X<=910&&pos_X>500) break;
 				
 				pos_Y+=JUMPSPEED;
-				if(pos_X>=830&&pos_X<=910&&pos_Y<=580&&pos_Y>=560) break;
-				if(pos_Y>=490&&pos_Y<=492&&pos_X<830&&pos_X>390) break;
-				if(pos_Y>=432&&pos_Y<=436&&pos_X<=390&&pos_X>10) break;
-				if(pos_X<150&&pos_Y>=435-29-29&&pos_Y<=435-29-29+2) break;
-				if(pos_Y>=308&pos_Y<=310&&pos_X<=110&&pos_X>10) break;
-				if(pos_Y>=328&pos_Y<=330&&pos_X<=910&&pos_X>500) break;
-				if(pos_X>=860&&pos_X<=910&&pos_Y<=300&&pos_Y>=290) break;
-				if(pos_Y>=205&&pos_Y<=207&&pos_X<=825&&pos_X>650) break;
-				if(pos_Y>=155&&pos_Y<=157&&pos_X<=650&&pos_X>480) break;
 				
 				
-				
+			
 				
 				
 				try {
