@@ -103,7 +103,7 @@ public class Stage extends Thread{
 						&& Level1.fireboy.getPos_Y()+27 >= itemList.get(i).getPos_y() 
 						)) 
 				{
-//					점수카운팅
+
 					new Music("Diamond.mp3",false).start();
 					itemList.remove(i);
 					System.out.println(i);
@@ -210,17 +210,13 @@ public class Stage extends Thread{
 			{
 					new Music("Death.mp3", false).start(); //죽을때 소리
 					
-//					for (int j=0; j < fireList.size(); j++) {
-//						fireList.get(j).close();
-//					}
 					
 					try {
 						Thread.sleep(2000);
 						
 						
 					} catch (Exception e) {}
-					
-//					close();
+
 					Fbwg.bal.restartStage();
 					
 				}

@@ -21,7 +21,7 @@ public class Fire extends Thread{
 		this.y=y;
 	}
 	public Image getNowState() {
-		return nowState;
+		return nowState; 
 	}
 	public int getX() {
 		return x;

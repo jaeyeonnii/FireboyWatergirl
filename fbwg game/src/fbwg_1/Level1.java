@@ -59,11 +59,11 @@ public class Level1 extends JFrame {
 		addKeyListener(new KeyListener());
 		
 		//캐릭터 초기 설정
-		watergirl.setPosition(30, 75);
+		watergirl.setPosition(30, 540);
 		watergirl.setDirection("right");
 		watergirl.setState(watergirl.getwaterRightMove());
 		
-		fireboy.setPosition(30, 75);
+		fireboy.setPosition(30, 640);
 		fireboy.setDirection("right");
 		fireboy.setState(fireboy.getfireRightMove());
 		
@@ -93,8 +93,8 @@ public class Level1 extends JFrame {
 		//템 오프스크린에 그림
 		stage.drawItems(g);
 		stage.drawblock(g);
-		g.drawImage(rock, 150, 250, null);
-		g.drawImage(rock, 940, 380, null);
+		g.drawImage(rock, 150, 230, null);
+		g.drawImage(rock, 920, 360, null);
 //		문 그리기
 		stage.drawDoor(g);
 		
