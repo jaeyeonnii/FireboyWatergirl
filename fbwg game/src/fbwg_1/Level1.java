@@ -93,9 +93,9 @@ public class Level1 extends JFrame {
 		//템 오프스크린에 그림
 		stage.drawItems(g);
 		stage.drawblock(g);
-		g.drawImage(rock, 150, 230, null);
-		g.drawImage(rock, 920, 360, null);
-//		문 그리기 
+		g.drawImage(rock, 150, 250, null);
+		g.drawImage(rock, 940, 380, null);
+//		문 그리기
 		stage.drawDoor(g);
 		
 		//캐릭터 그리기
