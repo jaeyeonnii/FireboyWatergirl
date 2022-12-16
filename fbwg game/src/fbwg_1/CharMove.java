@@ -97,8 +97,13 @@ public class CharMove {
 		return waterRightMove1;
 	}
 	
-	
+	//²Ä¼öÆÄÀÏ><
 	public void map() {
+		
+		if(pos_Y==540&&pos_X>=290&&pos_X<=300) {
+			down2();
+		}
+		if(pos_Y<=310&&pos_X>=498) down3();
 		
 		
 	}
