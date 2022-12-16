@@ -99,10 +99,10 @@ public class CharMove {
 	
 	
 	public void map() {
-		if(pos_Y==540&&pos_X>=290) {
+		if(pos_Y==540&&pos_X>=290&&pos_X<=300) {
 			down2();
 		}
-		if(pos_Y==310&&pos_X>=498) down3();
+		if(pos_Y<=310&&pos_X>=498) down3();
 		
 		
 	}
@@ -113,6 +113,7 @@ public class CharMove {
 		new Thread(()->{
 			while(pos_X<910&&right) {//!(pos_Y>=540&&pos_Y<=640&&pos_X>=830)
 				map();
+				//block();
 				
 				if (direction.equals("Fleft")) {
 					direction = "Fright";
@@ -145,6 +146,7 @@ public class CharMove {
 		new Thread(()->{
 			while(pos_X>10&left) {
 				map();
+				//block();
 				if (direction.equals("Fright")) {
 					direction = "Fleft";
 				}
@@ -173,6 +175,7 @@ public class CharMove {
 			
 			while(pos_X<910&&right) {//!(pos_Y>=580&&pos_Y<=640&&pos_X>=830)
 				map();
+				//block();
 				if (direction.equals("Wleft")) {
 					direction = "Wright";
 				}
@@ -204,6 +207,7 @@ public class CharMove {
 		new Thread(()->{
 			while(pos_X>10&&left) {
 				map();
+				//block();
 				if (direction.equals("Wright")) {
 					direction = "Wleft";
 				}
@@ -286,13 +290,7 @@ public class CharMove {
 //			state = waterRightJump;
 //		}
 	
-	public void block() {
-		if(Block.getpush()==true) {
-			if(pos_X<150&&pos_Y>=435-29-29&&pos_Y<=435-29-29+2) {
-				pos_Y=Block.getY();
-			}
-		}
-	}
+
 	public void down() { //캐릭터 다운
 		
 		down = true;
@@ -304,10 +302,16 @@ public class CharMove {
 				if(pos_Y>=490&&pos_Y<=492&&pos_X<830&&pos_X>390) break;
 				if(pos_Y>=432&&pos_Y<=436&&pos_X<=390&&pos_X>10) break;
 				if(pos_X<150&&pos_Y>=435-29-29&&pos_Y<=435-29-29+2) break;
-				if(pos_X<130&&pos_Y>=308&&pos_Y<=310) break;
-				if(pos_X<130&&pos_Y>=308&&pos_Y<=310) break;
+				if(pos_Y>=308&pos_Y<=310&&pos_X<=110&&pos_X>10) break;
+				if(pos_Y>=328&pos_Y<=330&&pos_X<=910&&pos_X>500) break;
+				if(pos_X>=860&&pos_X<=910&&pos_Y<=300&&pos_Y>=290) break;
+				if(pos_Y>=205&&pos_Y<=207&&pos_X<=825&&pos_X>650) break;
+				if(pos_Y>=155&&pos_Y<=157&&pos_X<=650&&pos_X>480) break;
 				
-				//block();
+				
+				
+				
+				
 				try {
 					Thread.sleep(18);
 				}catch(InterruptedException e) {
