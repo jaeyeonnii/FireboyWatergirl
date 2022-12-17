@@ -113,6 +113,7 @@ public class CharMove {
 			JUMPDOWN = 25;
 			down2();
 		}
+		
 		if((pos_Y>=275&&pos_Y<=280&&pos_X<=850&&pos_X>498
 			||(pos_Y<=155&&pos_Y>=153&&pos_X<=475&&pos_X>465)
 			||(pos_Y>=150&&pos_Y<=152&&pos_X>=180&&pos_X<=182))
