@@ -5,7 +5,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class KeyListener extends KeyAdapter {
-	//private Music sound;
+	private Music sound;
 	
 //	//점프 시 왼쪽 또는 오른쪽 방향키가 눌렸는지 확인하기 위해 선언
 //	public static boolean pressedLeftKey = false;
@@ -27,9 +27,9 @@ public class KeyListener extends KeyAdapter {
 			break;
 		case KeyEvent.VK_UP:
 			Level1.fireboy.up();
+			sound =new Music("Jump fb.mp3", false);
+			sound.start();
 			break;
-		
-			
 		case KeyEvent.VK_A:
 			if(!Level1.watergirl.isLeft()) {
 				Level1.watergirl.moveWaterLeft();
@@ -42,6 +42,8 @@ public class KeyListener extends KeyAdapter {
 			break;
 		case KeyEvent.VK_W:
 			Level1.watergirl.up();
+			sound =new Music("Jump wg.mp3", false);
+			sound.start();
 			break;
 		
 		}

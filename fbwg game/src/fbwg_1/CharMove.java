@@ -286,7 +286,6 @@ public class CharMove {
 			}
 			up = false;
 			down();
-			
 		}).start();
 	}
 	
