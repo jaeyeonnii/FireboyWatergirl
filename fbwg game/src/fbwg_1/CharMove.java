@@ -1,6 +1,6 @@
 package fbwg_1;
 
-
+import java.awt.Graphics;
 
 import java.awt.Image;
 
@@ -271,7 +271,16 @@ public class CharMove {
 		}).start();
 		
 	}
-
+	
+//	public void upper() {
+//		if (pos_Y > 116)  //보류!!!!!!!
+//			pos_Y -= 55;
+//	}
+//	
+//	public void lower() {
+//		if (pos_Y <= 422)
+//			pos_Y += 55;
+//	}
 	
 	public void up() {
 		up = true;
@@ -286,6 +295,7 @@ public class CharMove {
 			}
 			up = false;
 			down();
+			
 		}).start();
 	}
 	
@@ -302,7 +312,25 @@ public class CharMove {
 			up = false;
 			
 		}).start();
-	}
+	}	
+//		if (direction.equals("left") && KeyListener.pressedLeftKey) {
+//			pos_X -= 100;
+//			pos_Y -= 60;
+//			state = fireLeftJump;
+//		}
+//		else if (direction.equals("right") && KeyListener.pressedRightKey) {
+//			pos_X += 100;
+//			pos_Y -= 60;
+//			state = fireRightJump;
+//		}	
+//		else if (direction.equals("left") && !KeyListener.pressedLeftKey) {
+//			pos_Y -= 60;
+//			state = waterLeftJump;
+//		}
+//		else if (direction.equals("right")) {
+//			pos_Y -= 60;
+//			state = waterRightJump;
+//		}
 	
 
 	public void down() { //캐릭터 다운
@@ -370,7 +398,25 @@ public class CharMove {
 	}	
 	
 	
-	
+			
+//		if (direction.equals("left") && KeyListener.pressedLeftKey) {
+//			pos_X -= 100;
+//			pos_Y += 60;
+//			state = fireLeftMove2;
+//		}
+//		else if (direction.equals("right") && KeyListener.pressedRightKey) {
+//			pos_X += 100;
+//			pos_Y += 60;
+//			state = fireRightMove2;
+//		}	
+//		else if (direction.equals("left") && !KeyListener.pressedLeftKey) {
+//			pos_Y += 60;
+//			state = fireLeftMove2;
+//		}
+//		else if (direction.equals("right")) {
+//			pos_Y += 60;
+//			state = fireRightMove2;
+//		}
 	
 	
 	public void keyRelease() {
@@ -384,7 +430,56 @@ public class CharMove {
 			state = waterRightMove2;
 	}
 	
-
-}
+	public void checkLaddering() {
+		if (300 <= getPos_X() && getPos_X() <= 360)
+			crash = true;
+		else
+			crash = false;
+	}
+	
+//	public void dropAlfy() {
+//		if (528 <= getPos_X() && getPos_X()+64 <= 854 && 500 <= getPos_Y() + 120 
+//				&& getPos_Y() + 120 <= 550) 
+//		{
+//			setPos_Y(552);
+//			
+//			//new Music("died.mp3", false).start();
+//			
+//			for (int i=0; i < Level1.stage.getMonList().size(); i++) {
+//				Level1.stage.getMonList().get(i).close();
+//			}
+//			
+//			try {
+//				Thread.sleep(2000);
+//			} catch (Exception e) {}
+//			
+//			Level1.stage.close();
+//			Main.bal.restartStage();
+//			
+//		}
+//		else if (523 <= getPos_X() && getPos_X()+64 <= 642 && 180 <= getPos_Y() + 110 
+//				&& getPos_Y() + 110 <= 220) 
+//		{
+//			setPos_Y(552);
+//			
+//			//new Music("died.mp3", false).start();
+//			
+//			for (int i=0; i < Level1.stage.getMonList().size(); i++) {
+//				Level1.stage.getMonList().get(i).close();
+//			}
+//			
+//			try {
+//				Thread.sleep(2000);
+//			} catch (Exception e) {}
+//			
+//			Level1.stage.close();
+//			Main.bal.restartStage();
+//		}
+//		else if (1064 <= getPos_X() && 180 <= getPos_Y() + 120 && getPos_Y() + 120 <= 220)
+//			setPos_Y(252);
+//		else if (getPos_X() + 64 <= 1063 && 250 <= getPos_Y() && getPos_Y() <= 252)
+//			setPos_Y(422);
+//	}
+	}
 
 
